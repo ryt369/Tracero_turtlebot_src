@@ -1,0 +1,41 @@
+{
+  "benchmark": "TC-01",
+  "started_at": "2026-08-15T06:43:47.523884+00:00",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "goal_x": 2.5,
+    "goal_y": 0.0,
+    "distance_ahead": 0.75,
+    "scan_threshold": 0.65,
+    "warmup_sec": 5.5,
+    "event_timeout_sec": 15.0,
+    "motion_timeout_sec": 30.0,
+    "events_dir": "/root/turtlebot3_ws/events",
+    "backend_base_url": "",
+    "robot_id": "tc-01",
+    "static_index_version": "v1"
+  },
+  "runs": [
+    {
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "event_file": "/root/turtlebot3_ws/events/event_tc01_benchmark_1786776235368916370_run_01_8d1cee1a_1786776243194.json",
+      "pre_samples": 189,
+      "post_samples": 111,
+      "pre_span_sec": 4.76,
+      "post_span_sec": 1.997,
+      "observed_min_distance": 0.319,
+      "run_id": "benchmark_1786776235368916370_run_01_8d1cee1a",
+      "agent_log": "/root/turtlebot3_ws/events/benchmark_logs/run_01_agent.log",
+      "spawn_log": "/root/turtlebot3_ws/events/benchmark_logs/run_01_spawn.log",
+      "iteration": 1
+    }
+  ],
+  "passed_runs": 1,
+  "total_runs": 1,
+  "pass_rate": 1.0,
+  "finished_at": "2026-08-15T06:44:06.885961+00:00"
+}

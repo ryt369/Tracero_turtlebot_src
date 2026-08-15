@@ -1,0 +1,3972 @@
+{
+  "event_type": "obstacle_near",
+  "trigger_time": 1786779896.470277,
+  "robot_id": "tc-01",
+  "window": {
+    "pre_5s": [
+      {
+        "topic": "/scan",
+        "timestamp": 1786779891.489029,
+        "data": {
+          "front_min_distance": 0.898,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779891.489557,
+        "data": {
+          "source_ros_timestamp": 1786779891.48,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.490157,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.522511,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.550301,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.586675,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.624379,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.657801,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779891.679177,
+        "data": {
+          "front_min_distance": 0.921,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.689675,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.722142,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.767841,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.810724,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.841862,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.874161,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779891.890786,
+        "data": {
+          "front_min_distance": 0.929,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.911643,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.944118,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779891.977232,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.020911,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.051872,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.088734,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779892.089118,
+        "data": {
+          "source_ros_timestamp": 1786779892.084,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779892.105664,
+        "data": {
+          "front_min_distance": 0.921,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.129996,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.166601,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.216559,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.245031,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.280737,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.321492,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779892.33216,
+        "data": {
+          "front_min_distance": 0.933,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.350809,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.38417,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.415574,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.448938,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.48611,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.513643,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779892.537436,
+        "data": {
+          "front_min_distance": 0.914,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.568804,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.596897,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.637512,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.668082,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779892.677796,
+        "data": {
+          "source_ros_timestamp": 1786779892.677,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.693246,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779892.741222,
+        "data": {
+          "front_min_distance": 0.927,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.741809,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.770176,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.803378,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.843935,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.881444,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.92013,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779892.957617,
+        "data": {
+          "front_min_distance": 0.93,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779892.958421,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.007073,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.038898,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.068013,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.109498,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.143002,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779893.179683,
+        "data": {
+          "front_min_distance": 0.927,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.187286,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.215488,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.24348,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.273963,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779893.30441,
+        "data": {
+          "source_ros_timestamp": 1786779893.281,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.309439,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.343561,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779893.391022,
+        "data": {
+          "front_min_distance": 0.919,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.391663,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.42838,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.463494,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/navigate_to_pose/_action/status",
+        "timestamp": 1786779893.497962,
+        "data": {
+          "status_code": 2,
+          "status": "EXECUTING"
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.514138,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.538009,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": -0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.539018,
+        "data": {
+          "linear_x": 0.125,
+          "angular_z": 0.16
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.5849,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -2.0,
+            "y": -0.5
+          },
+          "linear_speed": 0.0,
+          "angular_speed": -0.0
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.589145,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.32
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779893.614214,
+        "data": {
+          "front_min_distance": 0.923,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.629992,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.999,
+            "y": -0.5
+          },
+          "linear_speed": 0.033,
+          "angular_speed": -0.002
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.63963,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.48
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.659134,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.996,
+            "y": -0.5
+          },
+          "linear_speed": 0.068,
+          "angular_speed": -0.003
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.68908,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.64
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.703025,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.993,
+            "y": -0.5
+          },
+          "linear_speed": 0.102,
+          "angular_speed": -0.002
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.73945,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.8
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.740325,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.988,
+            "y": -0.5
+          },
+          "linear_speed": 0.136,
+          "angular_speed": -0.002
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.7744,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.983,
+            "y": -0.5
+          },
+          "linear_speed": 0.157,
+          "angular_speed": 0.177
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.789034,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.96
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.803366,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.977,
+            "y": -0.5
+          },
+          "linear_speed": 0.166,
+          "angular_speed": 0.58
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779893.823446,
+        "data": {
+          "front_min_distance": 0.885,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.837149,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.971,
+            "y": -0.5
+          },
+          "linear_speed": 0.177,
+          "angular_speed": 0.91
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.851102,
+        "data": {
+          "linear_x": 0.174,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.88103,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.965,
+            "y": -0.499
+          },
+          "linear_speed": 0.193,
+          "angular_speed": 1.032
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779893.881781,
+        "data": {
+          "source_ros_timestamp": 1786779893.88,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.893261,
+        "data": {
+          "linear_x": 0.174,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.918491,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.959,
+            "y": -0.499
+          },
+          "linear_speed": 0.171,
+          "angular_speed": 1.01
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.939253,
+        "data": {
+          "linear_x": 0.151,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779893.952512,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.953,
+            "y": -0.498
+          },
+          "linear_speed": 0.172,
+          "angular_speed": 0.978
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779893.993559,
+        "data": {
+          "linear_x": 0.151,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.003885,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.948,
+            "y": -0.497
+          },
+          "linear_speed": 0.149,
+          "angular_speed": 0.939
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.031451,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.943,
+            "y": -0.496
+          },
+          "linear_speed": 0.149,
+          "angular_speed": 0.934
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.039612,
+        "data": {
+          "linear_x": 0.139,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779894.060732,
+        "data": {
+          "front_min_distance": 0.854,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.077875,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.938,
+            "y": -0.495
+          },
+          "linear_speed": 0.149,
+          "angular_speed": 0.957
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.089379,
+        "data": {
+          "linear_x": 0.139,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.136429,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.934,
+            "y": -0.494
+          },
+          "linear_speed": 0.137,
+          "angular_speed": 1.016
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.139052,
+        "data": {
+          "linear_x": 0.139,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.179838,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.929,
+            "y": -0.493
+          },
+          "linear_speed": 0.137,
+          "angular_speed": 1.02
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.190352,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.226782,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.925,
+            "y": -0.491
+          },
+          "linear_speed": 0.137,
+          "angular_speed": 0.985
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.238986,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.260133,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.919,
+            "y": -0.489
+          },
+          "linear_speed": 0.171,
+          "angular_speed": 0.995
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.294343,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.298826,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.913,
+            "y": -0.486
+          },
+          "linear_speed": 0.205,
+          "angular_speed": 1.012
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779894.325045,
+        "data": {
+          "front_min_distance": 0.817,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.338783,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.907,
+            "y": -0.484
+          },
+          "linear_speed": 0.206,
+          "angular_speed": 1.0
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.341151,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.379913,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.9,
+            "y": -0.48
+          },
+          "linear_speed": 0.206,
+          "angular_speed": 0.992
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.389273,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.425289,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.895,
+            "y": -0.477
+          },
+          "linear_speed": 0.193,
+          "angular_speed": 1.004
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.439075,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.447073,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.889,
+            "y": -0.474
+          },
+          "linear_speed": 0.195,
+          "angular_speed": 1.004
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779894.478143,
+        "data": {
+          "source_ros_timestamp": 1786779894.477,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.481021,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.883,
+            "y": -0.47
+          },
+          "linear_speed": 0.195,
+          "angular_speed": 0.996
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.48935,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.897
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.517823,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.878,
+            "y": -0.467
+          },
+          "linear_speed": 0.195,
+          "angular_speed": 0.998
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779894.538894,
+        "data": {
+          "front_min_distance": 0.759,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.539938,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.897
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.563169,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.872,
+            "y": -0.462
+          },
+          "linear_speed": 0.217,
+          "angular_speed": 0.884
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.589481,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.597165,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.866,
+            "y": -0.458
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.845
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.637537,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.86,
+            "y": -0.453
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 1.038
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.639131,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.666901,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.855,
+            "y": -0.448
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 1.075
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.693345,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.707563,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.85,
+            "y": -0.444
+          },
+          "linear_speed": 0.194,
+          "angular_speed": 0.775
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.741873,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.845,
+            "y": -0.439
+          },
+          "linear_speed": 0.195,
+          "angular_speed": 0.856
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.742051,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.789
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779894.752025,
+        "data": {
+          "front_min_distance": 0.73,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.782874,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.84,
+            "y": -0.434
+          },
+          "linear_speed": 0.216,
+          "angular_speed": 0.779
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.793418,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.744
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.813662,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.835,
+            "y": -0.428
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.698
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.839162,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.846
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.851578,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.83,
+            "y": -0.422
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.763
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.880204,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.826,
+            "y": -0.417
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.884
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.889573,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.846
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.93598,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.821,
+            "y": -0.411
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.881
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.941396,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.966988,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.817,
+            "y": -0.405
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.814
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779894.973942,
+        "data": {
+          "front_min_distance": 0.697,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779894.997453,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.949
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779894.999376,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.813,
+            "y": -0.398
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.954
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.031364,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.809,
+            "y": -0.392
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 1.021
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.039211,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.074057,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.805,
+            "y": -0.386
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.926
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779895.080548,
+        "data": {
+          "source_ros_timestamp": 1786779895.078,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.089085,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 1.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.102715,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.802,
+            "y": -0.379
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.973
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.139256,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.84
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.141225,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.798,
+            "y": -0.373
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 1.047
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.174951,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.795,
+            "y": -0.366
+          },
+          "linear_speed": 0.216,
+          "angular_speed": 1.029
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779895.177851,
+        "data": {
+          "front_min_distance": 1.489,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.19352,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.795
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.215838,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.793,
+            "y": -0.359
+          },
+          "linear_speed": 0.238,
+          "angular_speed": 0.498
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.239323,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.635
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.245929,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.79,
+            "y": -0.352
+          },
+          "linear_speed": 0.203,
+          "angular_speed": 0.603
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.283552,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.787,
+            "y": -0.345
+          },
+          "linear_speed": 0.214,
+          "angular_speed": 0.855
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.289083,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.59
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.316315,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": -0.338
+          },
+          "linear_speed": 0.227,
+          "angular_speed": 0.66
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.340366,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.358364,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.783,
+            "y": -0.331
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.505
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779895.386049,
+        "data": {
+          "front_min_distance": 1.455,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.38799,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.781,
+            "y": -0.324
+          },
+          "linear_speed": 0.198,
+          "angular_speed": 0.751
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.39419,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.424774,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.779,
+            "y": -0.318
+          },
+          "linear_speed": 0.215,
+          "angular_speed": 0.658
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.439403,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.461836,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.778,
+            "y": -0.311
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.439
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.489879,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.491789,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.776,
+            "y": -0.304
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.694
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.520598,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.775,
+            "y": -0.296
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.837
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.544643,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.532
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.557802,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.773,
+            "y": -0.289
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.654
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779895.585998,
+        "data": {
+          "front_min_distance": 1.415,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.588532,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.772,
+            "y": -0.282
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.432
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.589078,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.385
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.630806,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.771,
+            "y": -0.275
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.49
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.63955,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.658486,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.771,
+            "y": -0.268
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.433
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779895.682243,
+        "data": {
+          "source_ros_timestamp": 1786779895.676,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.689495,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.694138,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.77,
+            "y": -0.261
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.493
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.729282,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.769,
+            "y": -0.253
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.606
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.739069,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.765527,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.769,
+            "y": -0.246
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.565
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779895.787857,
+        "data": {
+          "front_min_distance": 1.368,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.789726,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.378
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.796,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": -0.239
+          },
+          "linear_speed": 0.218,
+          "angular_speed": 0.537
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.829528,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": -0.231
+          },
+          "linear_speed": 0.225,
+          "angular_speed": 0.37
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.842213,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.436
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.869739,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": -0.224
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.318
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.889254,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.436
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.898497,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": -0.216
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.473
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.941217,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": -0.209
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.493
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.941406,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.276
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779895.973051,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.769,
+            "y": -0.201
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.401
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779895.993307,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.231
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.000333,
+        "data": {
+          "front_min_distance": 1.352,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.011605,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.769,
+            "y": -0.194
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.148
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.039419,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.040956,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.769,
+            "y": -0.186
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.144
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.072477,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.77,
+            "y": -0.179
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.223
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.089324,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": 0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.104037,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.77,
+            "y": -0.172
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.18
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.139168,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.077
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.156718,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.771,
+            "y": -0.165
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.155
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.189305,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.077
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.194244,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.771,
+            "y": -0.158
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.048
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.215613,
+        "data": {
+          "front_min_distance": 1.301,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.229136,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.772,
+            "y": -0.15
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.032
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.239591,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.266432,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.772,
+            "y": -0.143
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.104
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779896.279943,
+        "data": {
+          "source_ros_timestamp": 1786779896.278,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.290004,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.298271,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.773,
+            "y": -0.135
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.156
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.343518,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.774,
+            "y": -0.128
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.135
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.34364,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.231
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.370025,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.774,
+            "y": -0.121
+          },
+          "linear_speed": 0.22,
+          "angular_speed": 0.111
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.389985,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.231
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.44013,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.071
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.450212,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.775,
+            "y": -0.113
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.25
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.470277,
+        "data": {
+          "front_min_distance": 0.573,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      }
+    ],
+    "post_2s": [
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.470277,
+        "data": {
+          "front_min_distance": 0.573,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.484391,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.776,
+            "y": -0.106
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.088
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.489251,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.53029,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.776,
+            "y": -0.098
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.111
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.545374,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": 0.0
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.56208,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.777,
+            "y": -0.091
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.113
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.589223,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.026
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.592089,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.778,
+            "y": -0.083
+          },
+          "linear_speed": 0.219,
+          "angular_speed": 0.034
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.629549,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.779,
+            "y": -0.076
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.072
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.639384,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.657978,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.779,
+            "y": -0.069
+          },
+          "linear_speed": 0.208,
+          "angular_speed": 0.033
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.667482,
+        "data": {
+          "front_min_distance": 0.521,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.69682,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.698073,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.78,
+            "y": -0.062
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.156
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.728736,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.781,
+            "y": -0.056
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.301
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.742543,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.771096,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.781,
+            "y": -0.049
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.162
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.793452,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.179
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.806901,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.782,
+            "y": -0.041
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.104
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.835158,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.782,
+            "y": -0.034
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.202
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.845481,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.873544,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.783,
+            "y": -0.026
+          },
+          "linear_speed": 0.219,
+          "angular_speed": -0.216
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779896.875078,
+        "data": {
+          "front_min_distance": 0.484,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779896.877386,
+        "data": {
+          "source_ros_timestamp": 1786779896.877,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.891453,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.900568,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.783,
+            "y": -0.02
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.084
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.936039,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.784,
+            "y": -0.013
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.082
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.939548,
+        "data": {
+          "linear_x": 0.185,
+          "angular_z": -0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779896.990508,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.784,
+            "y": -0.006
+          },
+          "linear_speed": 0.197,
+          "angular_speed": -0.165
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779896.990859,
+        "data": {
+          "linear_x": 0.185,
+          "angular_z": -0.128
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.016274,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.784,
+            "y": -0.0
+          },
+          "linear_speed": 0.186,
+          "angular_speed": -0.133
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.039573,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.288
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.045249,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.006
+          },
+          "linear_speed": 0.185,
+          "angular_speed": -0.1
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.085529,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.013
+          },
+          "linear_speed": 0.213,
+          "angular_speed": -0.21
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.089167,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.448
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779897.097525,
+        "data": {
+          "front_min_distance": 0.452,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.114901,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.021
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.358
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.139435,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.608
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.150575,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.028
+          },
+          "linear_speed": 0.22,
+          "angular_speed": -0.508
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.180729,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.036
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.677
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.197367,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.211505,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.044
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.648
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.241438,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.244126,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.051
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.658
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779897.277947,
+        "data": {
+          "front_min_distance": 0.41,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.279764,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.785,
+            "y": 0.059
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.454
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.294018,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.32969,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.784,
+            "y": 0.066
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.446
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.339398,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.538
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.359018,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.783,
+            "y": 0.074
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.608
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.389749,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.698
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.395432,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.782,
+            "y": 0.081
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.573
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.425105,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.781,
+            "y": 0.088
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.492
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.441339,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.744
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.458568,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.78,
+            "y": 0.096
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.627
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779897.47757,
+        "data": {
+          "source_ros_timestamp": 1786779897.477,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779897.493424,
+        "data": {
+          "front_min_distance": 0.353,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.493688,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.744
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.494355,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.779,
+            "y": 0.103
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.842
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.527822,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.778,
+            "y": 0.111
+          },
+          "linear_speed": 0.222,
+          "angular_speed": -0.787
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.539415,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.563693,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.776,
+            "y": 0.118
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.678
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.589326,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.60327,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.774,
+            "y": 0.125
+          },
+          "linear_speed": 0.199,
+          "angular_speed": -0.682
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.633591,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.772,
+            "y": 0.131
+          },
+          "linear_speed": 0.198,
+          "angular_speed": -0.706
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.639944,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.744
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.676401,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.77,
+            "y": 0.137
+          },
+          "linear_speed": 0.198,
+          "angular_speed": -0.695
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.689882,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.744
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779897.704962,
+        "data": {
+          "front_min_distance": 0.319,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.705769,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.768,
+            "y": 0.145
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.75
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.739762,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.744
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.752785,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.765,
+            "y": 0.152
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.772
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.782049,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.763,
+            "y": 0.159
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.733
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.789305,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.846
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.818476,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.76,
+            "y": 0.166
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.73
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.845124,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.846
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.850303,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.757,
+            "y": 0.172
+          },
+          "linear_speed": 0.199,
+          "angular_speed": -0.881
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.886925,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.754,
+            "y": 0.179
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.91
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.889577,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.846
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779897.910497,
+        "data": {
+          "front_min_distance": 0.28,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.926021,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.75,
+            "y": 0.185
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.813
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.939475,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.962797,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.747,
+            "y": 0.192
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.819
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779897.995485,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.743,
+            "y": 0.198
+          },
+          "linear_speed": 0.222,
+          "angular_speed": -0.699
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779897.995614,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.692
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.025134,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.739,
+            "y": 0.205
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.625
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.045239,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.641
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.061337,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.735,
+            "y": 0.211
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.706
+        }
+      },
+      {
+        "topic": "/local_costmap/costmap",
+        "timestamp": 1786779898.083991,
+        "data": {
+          "source_ros_timestamp": 1786779898.076,
+          "age_ms": 0.0,
+          "max_cost": 100,
+          "width": 60,
+          "height": 60,
+          "resolution": 0.05000000074505806
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.08951,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.641
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.094625,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.73,
+            "y": 0.217
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.679
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779898.10931,
+        "data": {
+          "front_min_distance": 0.26,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.13692,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.726,
+            "y": 0.223
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.602
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.141199,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.641
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.164551,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.722,
+            "y": 0.228
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.63
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.189377,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.641
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.194779,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.718,
+            "y": 0.234
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.666
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.231656,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.713,
+            "y": 0.24
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.653
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.239711,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.59
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.274703,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.708,
+            "y": 0.245
+          },
+          "linear_speed": 0.221,
+          "angular_speed": -0.631
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.293283,
+        "data": {
+          "linear_x": 0.208,
+          "angular_z": -0.59
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.309851,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.703,
+            "y": 0.25
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.589
+        }
+      },
+      {
+        "topic": "/scan",
+        "timestamp": 1786779898.320573,
+        "data": {
+          "front_min_distance": 0.904,
+          "range_min": 0.12,
+          "range_max": 3.5
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.340332,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.59
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.347673,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.698,
+            "y": 0.256
+          },
+          "linear_speed": 0.21,
+          "angular_speed": -0.573
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.394068,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.693,
+            "y": 0.26
+          },
+          "linear_speed": 0.198,
+          "angular_speed": -0.607
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.394197,
+        "data": {
+          "linear_x": 0.197,
+          "angular_z": -0.59
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.42009,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.689,
+            "y": 0.265
+          },
+          "linear_speed": 0.196,
+          "angular_speed": -0.618
+        }
+      },
+      {
+        "topic": "/cmd_vel",
+        "timestamp": 1786779898.44064,
+        "data": {
+          "linear_x": 0.22,
+          "angular_z": -0.436
+        }
+      },
+      {
+        "topic": "/odom",
+        "timestamp": 1786779898.457027,
+        "data": {
+          "frame_id": "odom",
+          "child_frame_id": "base_footprint",
+          "position": {
+            "x": -1.684,
+            "y": 0.27
+          },
+          "linear_speed": 0.196,
+          "angular_speed": -0.634
+        }
+      }
+    ]
+  },
+  "params_snapshot": {
+    "controller_frequency": 20.0,
+    "update_frequency": 5.0,
+    "inflation_radius": 0.55,
+    "scan_threshold": 0.65
+  },
+  "static_index_version": "v1",
+  "run_id": "benchmark_1786779887981335788_run_05_6a363c98",
+  "trigger_distance": 0.573
+}

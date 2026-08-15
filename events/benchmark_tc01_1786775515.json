@@ -1,0 +1,35 @@
+{
+  "benchmark": "TC-01",
+  "started_at": "2026-08-15T06:31:37.488491+00:00",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "goal_x": 2.5,
+    "goal_y": 0.0,
+    "distance_ahead": 0.75,
+    "scan_threshold": 0.65,
+    "warmup_sec": 5.5,
+    "event_timeout_sec": 15.0,
+    "motion_timeout_sec": 30.0,
+    "events_dir": "/root/turtlebot3_ws/events",
+    "backend_base_url": "",
+    "robot_id": "tc-01",
+    "static_index_version": "v1"
+  },
+  "runs": [
+    {
+      "passed": false,
+      "errors": [
+        "Agent exited during warmup"
+      ],
+      "warnings": [],
+      "agent_log": "/root/turtlebot3_ws/events/benchmark_logs/run_01_agent.log",
+      "iteration": 1
+    }
+  ],
+  "passed_runs": 0,
+  "total_runs": 1,
+  "pass_rate": 0.0,
+  "finished_at": "2026-08-15T06:31:55.931197+00:00"
+}

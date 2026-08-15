@@ -1,0 +1,11 @@
+# 拦截 ROS 2 编译产物和系统日志
+build/
+install/
+log/
+*.log
+
+# 拦截 Python 编译缓存
+__pycache__/
+*.pyc
+
+# 注意：这里故意不写 *.json 和 events/，确保你的 JSON 数据包会被 Git 追踪！
