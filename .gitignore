@@ -7,5 +7,7 @@ log/
 # 拦截 Python 编译缓存
 __pycache__/
 *.pyc
+.pytest_cache/
+.codex-backup*/
 
 # 注意：这里故意不写 *.json 和 events/，确保你的 JSON 数据包会被 Git 追踪！

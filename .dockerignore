@@ -1,0 +1,11 @@
+.git
+.gitignore
+**/.codex-backup*
+**/.pytest_cache
+**/__pycache__
+**/*.pyc
+build
+install
+log
+events
+src/scripts
