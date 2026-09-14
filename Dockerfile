@@ -19,6 +19,8 @@ SHELL ["/bin/bash", "-c"]
 
 RUN sed -i "s|http://archive.ubuntu.com/ubuntu|${UBUNTU_MIRROR}|g" \
         /etc/apt/sources.list \
+    && sed -i "s|http://security.ubuntu.com/ubuntu|${UBUNTU_MIRROR}|g" \
+        /etc/apt/sources.list \
     && sed -i "s|http://packages.ros.org/ros2/ubuntu|${ROS_MIRROR}|g" \
         /etc/apt/sources.list.d/ros2.sources \
     && sed -i 's/^Types: deb deb-src/Types: deb/' \
@@ -44,28 +46,33 @@ RUN python3 -m pip install --no-cache-dir \
     && rm /tmp/requirements-static-index.txt
 
 RUN mkdir -p /root/nav2_ws/src /root/turtlebot3_ws/src /root/turtlebot3_ws/events \
-    && git init /root/nav2_ws/src/navigation2 \
-    && git -C /root/nav2_ws/src/navigation2 remote add origin \
-        https://github.com/ros-navigation/navigation2.git \
-    && git -C /root/nav2_ws/src/navigation2 fetch --depth 1 origin ${NAV2_COMMIT} \
-    && git -C /root/nav2_ws/src/navigation2 checkout --detach FETCH_HEAD \
-    && git init /root/turtlebot3_ws/src/turtlebot3 \
-    && git -C /root/turtlebot3_ws/src/turtlebot3 remote add origin \
-        https://github.com/ROBOTIS-GIT/turtlebot3.git \
-    && git -C /root/turtlebot3_ws/src/turtlebot3 fetch --depth 1 origin ${TURTLEBOT3_COMMIT} \
-    && git -C /root/turtlebot3_ws/src/turtlebot3 checkout --detach FETCH_HEAD \
-    && git init /root/turtlebot3_ws/src/turtlebot3_msgs \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_msgs remote add origin \
+    && git config --global http.version HTTP/1.1 \
+    && fetch_commit() { \
+        directory="$1"; repository_url="$2"; commit="$3"; \
+        git init "${directory}"; \
+        git -C "${directory}" remote add origin "${repository_url}"; \
+        fetched=false; \
+        for attempt in 1 2 3 4 5; do \
+            if git -C "${directory}" fetch --depth 1 origin "${commit}"; then \
+                fetched=true; \
+                break; \
+            fi; \
+            echo "Fetch attempt ${attempt} failed for ${repository_url}"; \
+            sleep $((attempt * 2)); \
+        done; \
+        "${fetched}"; \
+        git -C "${directory}" checkout --detach FETCH_HEAD; \
+    }; \
+    fetch_commit /root/nav2_ws/src/navigation2 \
+        https://github.com/ros-navigation/navigation2.git "${NAV2_COMMIT}" \
+    && fetch_commit /root/turtlebot3_ws/src/turtlebot3 \
+        https://github.com/ROBOTIS-GIT/turtlebot3.git "${TURTLEBOT3_COMMIT}" \
+    && fetch_commit /root/turtlebot3_ws/src/turtlebot3_msgs \
         https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_msgs fetch --depth 1 origin \
-        ${TURTLEBOT3_MSGS_COMMIT} \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_msgs checkout --detach FETCH_HEAD \
-    && git init /root/turtlebot3_ws/src/turtlebot3_simulations \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_simulations remote add origin \
+        "${TURTLEBOT3_MSGS_COMMIT}" \
+    && fetch_commit /root/turtlebot3_ws/src/turtlebot3_simulations \
         https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_simulations fetch --depth 1 origin \
-        ${TURTLEBOT3_SIMULATIONS_COMMIT} \
-    && git -C /root/turtlebot3_ws/src/turtlebot3_simulations checkout --detach FETCH_HEAD \
+        "${TURTLEBOT3_SIMULATIONS_COMMIT}" \
     && printf '{\n  "repositories": {\n    "navigation2": {"commit": "%s", "source_root": "nav2_ws/src/navigation2"},\n    "turtlebot3": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3"},\n    "turtlebot3_msgs": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3_msgs"},\n    "turtlebot3_simulations": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3_simulations"},\n    "tracero_agent": {"commit": "%s", "source_root": "turtlebot3_ws/src/tracero_agent"}\n  }\n}\n' \
         "${NAV2_COMMIT}" "${TURTLEBOT3_COMMIT}" \
         "${TURTLEBOT3_MSGS_COMMIT}" "${TURTLEBOT3_SIMULATIONS_COMMIT}" \
