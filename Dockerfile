@@ -4,6 +4,7 @@ ARG NAV2_COMMIT=3c3db59d6969d8ecee8e68468693d006397f4a0c
 ARG TURTLEBOT3_COMMIT=ed3521af40f2f73711aace307853bbf125583418
 ARG TURTLEBOT3_MSGS_COMMIT=bf28eaed979bec8c79ed19a8aa0e26e96a6529d1
 ARG TURTLEBOT3_SIMULATIONS_COMMIT=a35a56c8b04877dc89772b598084d8ce648a9023
+ARG TRACERO_AGENT_COMMIT=working-tree
 ARG UBUNTU_MIRROR=https://mirrors.ustc.edu.cn/ubuntu
 ARG ROS_MIRROR=https://mirrors.ustc.edu.cn/ros2/ubuntu
 
@@ -65,6 +66,11 @@ RUN mkdir -p /root/nav2_ws/src /root/turtlebot3_ws/src /root/turtlebot3_ws/event
     && git -C /root/turtlebot3_ws/src/turtlebot3_simulations fetch --depth 1 origin \
         ${TURTLEBOT3_SIMULATIONS_COMMIT} \
     && git -C /root/turtlebot3_ws/src/turtlebot3_simulations checkout --detach FETCH_HEAD \
+    && printf '{\n  "repositories": {\n    "navigation2": {"commit": "%s", "source_root": "nav2_ws/src/navigation2"},\n    "turtlebot3": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3"},\n    "turtlebot3_msgs": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3_msgs"},\n    "turtlebot3_simulations": {"commit": "%s", "source_root": "turtlebot3_ws/src/turtlebot3_simulations"},\n    "tracero_agent": {"commit": "%s", "source_root": "turtlebot3_ws/src/tracero_agent"}\n  }\n}\n' \
+        "${NAV2_COMMIT}" "${TURTLEBOT3_COMMIT}" \
+        "${TURTLEBOT3_MSGS_COMMIT}" "${TURTLEBOT3_SIMULATIONS_COMMIT}" \
+        "${TRACERO_AGENT_COMMIT}" \
+        > /root/source-versions.json \
     && find /root/nav2_ws/src /root/turtlebot3_ws/src \
         -type d -name .git -prune -exec rm -rf {} +
 

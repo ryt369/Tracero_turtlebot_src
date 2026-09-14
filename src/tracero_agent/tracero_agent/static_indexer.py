@@ -11,6 +11,7 @@ import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+import xml.etree.ElementTree as ET
 
 
 TC01_TOPICS = (
@@ -35,17 +36,29 @@ EXCLUDED_PARTS = {
 }
 
 
+SOURCE_VERSION_FILE = Path('/root/source-versions.json')
+
+
 @dataclass(frozen=True)
 class SourceRoot:
     label: str
     path: Path
+    repository: str = ''
+    commit: str = ''
 
 
 @dataclass(frozen=True)
 class Location:
     file: str
+    file_path: str
+    package: str
     line: int
     snippet: str
+    line_end: int
+    code: List[str]
+    function_name: str
+    symbol_line_start: int
+    symbol_line_end: int
 
 
 @dataclass(frozen=True)
@@ -57,6 +70,8 @@ class Endpoint:
     location: Location
     language: str
     message_type: str
+    repository: str
+    commit: str
 
 
 def load_tree_sitter():
@@ -137,6 +152,11 @@ def compact_snippet(source_text: str, node, limit: int = 300) -> str:
     return snippet if len(snippet) <= limit else f'{snippet[:limit - 3]}...'
 
 
+def source_lines(source_text: str, start_line: int, end_line: int) -> List[str]:
+    lines = source_text.splitlines()
+    return lines[start_line - 1:end_line]
+
+
 def find_ancestor(node, types: Sequence[str]):
     current = node.parent
     while current is not None:
@@ -144,6 +164,64 @@ def find_ancestor(node, types: Sequence[str]):
             return current
         current = current.parent
     return None
+
+
+def enclosing_symbol(node, language: str):
+    symbol_types = (
+        ('function_definition', 'async_function_definition')
+        if language == 'python'
+        else ('function_definition',)
+    )
+    current = node
+    while current is not None:
+        if current.type in symbol_types:
+            return current
+        current = current.parent
+    return None
+
+
+def symbol_name(source: bytes, symbol_node, language: str) -> str:
+    if symbol_node is None:
+        return ''
+    if language == 'python':
+        name = symbol_node.child_by_field_name('name')
+        if name is None:
+            return ''
+        function_name = node_text(source, name)
+        parent = symbol_node.parent
+        while parent is not None:
+            if parent.type == 'class_definition':
+                class_name = parent.child_by_field_name('name')
+                if class_name is not None:
+                    function_name = f'{node_text(source, class_name)}.{function_name}'
+                break
+            parent = parent.parent
+        return function_name
+
+    declarator = symbol_node.child_by_field_name('declarator')
+    if declarator is None:
+        return ''
+    name = node_text(source, declarator)
+    name = re.sub(r'\s+', '', name)
+    name = name.split('(', 1)[0]
+    return name.split('::')[-1] if '::' not in name else name
+
+
+def package_name(source_path: Path, source_root: SourceRoot) -> str:
+    root = source_root.path.resolve()
+    current = source_path.parent.resolve()
+    while True:
+        package_file = current / 'package.xml'
+        if package_file.is_file():
+            try:
+                document = ET.parse(package_file)
+                name = document.getroot().findtext('name')
+                return name.strip() if name else ''
+            except (ET.ParseError, OSError):
+                return ''
+        if current == root or current.parent == current:
+            return ''
+        current = current.parent
 
 
 def assigned_variable(source: bytes, call_node, language: str) -> str:
@@ -183,12 +261,25 @@ def source_location(
     node,
     root: SourceRoot,
     source_path: Path,
+    language: str,
 ) -> Location:
     relative = source_path.relative_to(root.path).as_posix()
+    line = node.start_point[0] + 1
+    line_end = node.end_point[0] + 1
+    symbol = enclosing_symbol(node, language)
+    symbol_start = symbol.start_point[0] + 1 if symbol else line
+    symbol_end = symbol.end_point[0] + 1 if symbol else line_end
     return Location(
         file=f'{root.label}/{relative}',
-        line=node.start_point[0] + 1,
+        file_path=relative,
+        package=package_name(source_path, root),
+        line=line,
         snippet=compact_snippet(source_text, node),
+        line_end=line_end,
+        code=source_lines(source_text, line, line_end),
+        function_name=symbol_name(source_text.encode('utf-8'), symbol, language),
+        symbol_line_start=symbol_start,
+        symbol_line_end=symbol_end,
     )
 
 
@@ -216,7 +307,7 @@ def parse_python_file(root: SourceRoot, source_path: Path) -> List[Endpoint]:
         if method_name == 'publish':
             variable = normalized_variable(function_text.rsplit('.', 1)[0])
             publish_locations.setdefault(variable, []).append(
-                source_location(source_text, node, root, source_path)
+                source_location(source_text, node, root, source_path, 'python')
             )
             continue
         if method_name not in ('create_publisher', 'create_subscription'):
@@ -236,9 +327,13 @@ def parse_python_file(root: SourceRoot, source_path: Path) -> List[Endpoint]:
             role=role,
             variable=assigned_variable(source, node, 'python'),
             node=node_name,
-            location=source_location(source_text, node, root, source_path),
+            location=source_location(
+                source_text, node, root, source_path, 'python'
+            ),
             language='python',
             message_type=node_text(source, arguments[0]),
+            repository=root.repository,
+            commit=root.commit,
         ))
 
     return bind_publish_locations(endpoints, publish_locations)
@@ -273,7 +368,7 @@ def parse_cpp_file(root: SourceRoot, source_path: Path) -> List[Endpoint]:
             receiver = re.split(r'(?:->|\.)publish$', function_text)[0]
             variable = normalized_variable(receiver)
             publish_locations.setdefault(variable, []).append(
-                source_location(source_text, node, root, source_path)
+                source_location(source_text, node, root, source_path, 'cpp')
             )
             continue
 
@@ -294,9 +389,13 @@ def parse_cpp_file(root: SourceRoot, source_path: Path) -> List[Endpoint]:
             role=role,
             variable=assigned_variable(source, node, 'cpp'),
             node=node_name,
-            location=source_location(source_text, node, root, source_path),
+            location=source_location(
+                source_text, node, root, source_path, 'cpp'
+            ),
             language='cpp',
             message_type=message_type,
+            repository=root.repository,
+            commit=root.commit,
         ))
 
     return bind_publish_locations(endpoints, publish_locations)
@@ -320,6 +419,8 @@ def bind_publish_locations(
                 location=location,
                 language=endpoint.language,
                 message_type=endpoint.message_type,
+                repository=endpoint.repository,
+                commit=endpoint.commit,
             ))
     return bound
 
@@ -340,11 +441,26 @@ def source_files(root: SourceRoot) -> Iterable[Tuple[Path, str]]:
 
 
 def endpoint_payload(endpoint: Endpoint) -> Dict:
+    location = endpoint.location
+    line_start = location.line
+    line_end = location.line_end
     return {
         'node': endpoint.node,
-        'file': endpoint.location.file,
-        'line': endpoint.location.line,
-        'snippet': endpoint.location.snippet,
+        'repository': endpoint.repository,
+        'commit': endpoint.commit,
+        'package': location.package,
+        'file_path': location.file_path,
+        'function_name': location.function_name,
+        'line_start': line_start,
+        'line_end': line_end,
+        'code': location.code,
+        'highlight_lines': list(range(line_start, line_end + 1)),
+        'symbol_line_start': location.symbol_line_start,
+        'symbol_line_end': location.symbol_line_end,
+        'role': endpoint.role,
+        'file': location.file,
+        'line': line_start,
+        'snippet': location.snippet,
         'language': endpoint.language,
         'message_type': endpoint.message_type,
     }
@@ -355,15 +471,17 @@ def deduplicate(records: List[Dict]) -> List[Dict]:
     for record in records:
         key = (
             record['node'],
-            record['file'],
-            record['line'],
+            record['file_path'],
+            record['line_start'],
             record['language'],
             record['message_type'],
         )
         unique[key] = record
     return sorted(
         unique.values(),
-        key=lambda item: (item['file'], item['line'], item['node']),
+        key=lambda item: (
+            item['file_path'], item['line_start'], item['node']
+        ),
     )
 
 
@@ -450,12 +568,75 @@ def upload_index(base_url: str, payload: Dict, timeout_sec: float):
         raise RuntimeError(f'static index upload failed: {error}') from error
 
 
-def default_roots() -> List[SourceRoot]:
+def load_source_versions(path: Path) -> Dict:
+    if not path.is_file():
+        return {}
+    try:
+        with path.open(encoding='utf-8') as source_file:
+            payload = json.load(source_file)
+    except (OSError, json.JSONDecodeError) as error:
+        raise RuntimeError(
+            f'could not read source version file {path}: {error}'
+        ) from error
+    repositories = payload.get('repositories', {})
+    return repositories if isinstance(repositories, dict) else {}
+
+
+def root_from_repository(
+    repository: str,
+    label: str,
+    path: Path,
+    repositories: Dict,
+) -> SourceRoot:
+    metadata = repositories.get(repository, {})
+    commit = str(metadata.get('commit', '')) if isinstance(metadata, dict) else ''
+    return SourceRoot(label, path, repository, commit)
+
+
+def default_roots(repositories: Dict) -> List[SourceRoot]:
     candidates = (
-        ('turtlebot3_ws/src', Path('/root/turtlebot3_ws/src')),
-        ('nav2_ws/src', Path('/root/nav2_ws/src')),
+        ('navigation2', 'nav2_ws/src/navigation2',
+         Path('/root/nav2_ws/src/navigation2')),
+        ('turtlebot3', 'turtlebot3_ws/src/turtlebot3',
+         Path('/root/turtlebot3_ws/src/turtlebot3')),
+        ('turtlebot3_msgs', 'turtlebot3_ws/src/turtlebot3_msgs',
+         Path('/root/turtlebot3_ws/src/turtlebot3_msgs')),
+        ('turtlebot3_simulations', 'turtlebot3_ws/src/turtlebot3_simulations',
+         Path('/root/turtlebot3_ws/src/turtlebot3_simulations')),
+        ('tracero_agent', 'turtlebot3_ws/src/tracero_agent',
+         Path('/root/turtlebot3_ws/src/tracero_agent')),
     )
-    return [SourceRoot(label, path) for label, path in candidates if path.is_dir()]
+    return [
+        root_from_repository(repository, label, path, repositories)
+        for repository, label, path in candidates
+        if path.is_dir()
+    ]
+
+
+def apply_source_versions(
+    roots: Sequence[SourceRoot],
+    repositories: Dict,
+) -> List[SourceRoot]:
+    enriched = []
+    for root in roots:
+        repository = root.repository
+        commit = root.commit
+        if not repository:
+            for candidate, metadata in repositories.items():
+                if not isinstance(metadata, dict):
+                    continue
+                source_root = str(metadata.get('source_root', '')).strip('/')
+                if source_root and root.label.strip('/') == source_root:
+                    repository = candidate
+                    commit = str(metadata.get('commit', ''))
+                    break
+        enriched.append(SourceRoot(
+            root.label,
+            root.path,
+            repository,
+            commit,
+        ))
+    return enriched
 
 
 def parse_args(argv: Optional[Sequence[str]] = None):
@@ -468,11 +649,16 @@ def parse_args(argv: Optional[Sequence[str]] = None):
         type=parse_source_root,
         help='repeatable LABEL=/absolute/path source root',
     )
-    parser.add_argument('--version', default='v1')
+    parser.add_argument('--version', default='v2')
     parser.add_argument('--topic', action='append')
     parser.add_argument(
         '--output',
-        default='/root/turtlebot3_ws/events/static_index_v1.json',
+        default='/root/turtlebot3_ws/events/static_index_v2.json',
+    )
+    parser.add_argument(
+        '--source-version-file',
+        default=str(SOURCE_VERSION_FILE),
+        help='JSON file containing repository commit metadata',
     )
     parser.add_argument('--backend-base-url', default='')
     parser.add_argument('--upload', action='store_true')
@@ -482,13 +668,27 @@ def parse_args(argv: Optional[Sequence[str]] = None):
 
 def main(argv: Optional[Sequence[str]] = None):
     options = parse_args(argv)
-    roots = options.source_root or default_roots()
+    try:
+        repositories = load_source_versions(Path(options.source_version_file))
+    except RuntimeError as error:
+        print(f'ERROR: {error}', file=sys.stderr)
+        return 1
+    roots = options.source_root or default_roots(repositories)
+    roots = apply_source_versions(roots, repositories)
     if not roots:
         print('No source roots were provided or discovered.', file=sys.stderr)
         return 2
     topics = options.topic or list(TC01_TOPICS)
     try:
         payload = build_index(roots, options.version, topics)
+        payload['repositories'] = {
+            root.repository: {
+                'commit': root.commit,
+                'source_root': root.label,
+            }
+            for root in roots
+            if root.repository
+        }
         output_path = Path(options.output)
         atomic_write_json(output_path, payload)
         print(f'Static index written to: {output_path}')

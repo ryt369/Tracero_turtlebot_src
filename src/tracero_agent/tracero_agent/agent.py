@@ -28,7 +28,7 @@ class TraceroAgent(Node):
         self.declare_parameter('robot_id', 'tc-01')
         self.declare_parameter('run_id', 'manual')
         self.declare_parameter('event_type', 'obstacle_near')
-        self.declare_parameter('static_index_version', 'v1')
+        self.declare_parameter('static_index_version', 'v2')
         self.declare_parameter('backend_base_url', '')
         self.declare_parameter('http_timeout_sec', 3.0)
         self.declare_parameter('controller_frequency', 20.0)

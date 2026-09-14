@@ -38,7 +38,7 @@ def parse_args():
     parser.add_argument('--events-dir', default=DEFAULT_EVENTS_DIR)
     parser.add_argument('--backend-base-url', default='')
     parser.add_argument('--robot-id', default='tc-01')
-    parser.add_argument('--static-index-version', default='v1')
+    parser.add_argument('--static-index-version', default='v2')
     return parser.parse_args(remove_ros_args(args=sys.argv)[1:])
 
 
@@ -135,7 +135,7 @@ def wait_for_run_event(events_dir, run_id, timeout_sec):
     return None
 
 
-def validate_event(json_path, scan_threshold):
+def validate_event(json_path, scan_threshold, expected_index_version='v2'):
     errors = []
     warnings = []
     with open(json_path, encoding='utf-8') as event_file:
@@ -144,8 +144,10 @@ def validate_event(json_path, scan_threshold):
     if payload.get('event_type') != 'obstacle_near':
         errors.append('event_type is not obstacle_near')
 
-    if payload.get('static_index_version') != 'v1':
-        errors.append('static_index_version is not v1')
+    if payload.get('static_index_version') != expected_index_version:
+        errors.append(
+            f'static_index_version is not {expected_index_version}'
+        )
 
     trigger_time = payload.get('trigger_time')
     window = payload.get('window') or {}
@@ -396,7 +398,11 @@ def run_once(iteration, options, navigator, delete_client, reset_world_client):
                     'spawn_log': str(spawn_log_path),
                 }
 
-            result = validate_event(event_path, options.scan_threshold)
+            result = validate_event(
+                event_path,
+                options.scan_threshold,
+                options.static_index_version,
+            )
             result['run_id'] = run_id
             result['agent_log'] = str(agent_log_path)
             result['spawn_log'] = str(spawn_log_path)

@@ -25,8 +25,15 @@ indexing, but are not rebuilt.
 Run from the repository root:
 
 ```bash
-docker build -t tracero-turtlebot3:humble .
+docker build \
+  --build-arg TRACERO_AGENT_COMMIT=$(git rev-parse HEAD) \
+  -t tracero-turtlebot3:humble .
 ```
+
+The image records the pinned Nav2/TurtleBot3 commits and the Agent commit in
+`/root/source-versions.json`. If the working tree is not committed, the
+Agent value remains `working-tree` and should not be treated as an immutable
+release version.
 
 The default Ubuntu package mirror is USTC for stable builds in mainland China.
 Override it when needed:
@@ -63,16 +70,16 @@ Inside the container:
 
 ```bash
 ros2 run tracero_agent build_static_index \
-  --version v1 \
-  --output /root/turtlebot3_ws/events/static_index_v1.json
+  --version v2 \
+  --output /root/turtlebot3_ws/events/static_index_v2.json
 ```
 
 Upload it to the backend:
 
 ```bash
 ros2 run tracero_agent build_static_index \
-  --version v1 \
-  --output /root/turtlebot3_ws/events/static_index_v1.json \
+  --version v2 \
+  --output /root/turtlebot3_ws/events/static_index_v2.json \
   --backend-base-url http://BACKEND_HOST:PORT \
   --upload
 ```
