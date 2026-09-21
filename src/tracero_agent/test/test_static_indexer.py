@@ -9,6 +9,12 @@ from tracero_agent.static_indexer import (
     build_index,
     load_source_versions,
     upload_index,
+    validate_index,
+)
+from tracero_agent.index_version import (
+    generate_index_version,
+    read_index_version,
+    write_index_version,
 )
 
 
@@ -50,7 +56,7 @@ class Agent(Node):
     assert publisher['line_start'] == 9
     assert publisher['line_end'] == 9
     assert publisher['code'] == ['        self.pub.publish(message)']
-    assert publisher['highlight_lines'] == [9]
+    assert publisher['highlight_lines'] == []
     assert subscriber['line'] == 6
     assert payload['index']['/missing'] == {
         'publishers': [],
@@ -92,7 +98,7 @@ void Controller::send(geometry_msgs::msg::Twist message)
     assert publisher['function_name'] == 'Controller::send'
     assert publisher['line_start'] == 12
     assert publisher['line_end'] == 12
-    assert publisher['highlight_lines'] == [12]
+    assert publisher['highlight_lines'] == []
     assert subscriber['line'] == 6
 
 
@@ -183,3 +189,51 @@ def test_upload_uses_static_index_endpoint():
         'path': '/api/ingest/static_index',
         'payload': payload,
     }
+
+
+def test_validate_index_checks_source_ranges(tmp_path):
+    payload = build_index(
+        [SourceRoot('fixture/src', tmp_path, 'fixture', 'abc123')],
+        'tc01-test',
+        ['/scan'],
+    )
+    validate_index(
+        payload,
+        [SourceRoot('fixture/src', tmp_path, 'fixture', 'abc123')],
+        strict=True,
+    )
+
+
+def test_validate_index_strict_rejects_missing_commit(tmp_path):
+    payload = build_index(
+        [SourceRoot('fixture/src', tmp_path, 'fixture', '')],
+        'tc01-test',
+        ['/scan'],
+    )
+    try:
+        validate_index(
+            payload,
+            [SourceRoot('fixture/src', tmp_path, 'fixture', '')],
+            strict=True,
+        )
+    except ValueError as error:
+        assert 'commit' in str(error)
+    else:
+        raise AssertionError('strict validation accepted an empty commit')
+
+
+def test_generated_index_version_is_content_addressed(tmp_path):
+    payload = {'version': '', 'index': {'/scan': {'publishers': []}}}
+    first = generate_index_version(payload)
+    second = generate_index_version(payload)
+    changed = generate_index_version({
+        'version': '',
+        'index': {'/scan': {'publishers': [{'line_start': 1}]}},
+    })
+    assert first == second
+    assert first.startswith('tc01-')
+    assert first != changed
+
+    write_index_version(str(tmp_path), first)
+    assert read_index_version(str(tmp_path)) == first
+    assert read_index_version(str(tmp_path), 'manual-version') == 'manual-version'

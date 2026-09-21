@@ -18,6 +18,8 @@ from rclpy.parameter import Parameter
 from rclpy.utilities import remove_ros_args
 from std_srvs.srv import Empty
 
+from tracero_agent.index_version import read_index_version
+
 
 DEFAULT_EVENTS_DIR = '/root/turtlebot3_ws/events'
 OBSTACLE_NAME = 'tc01_obstacle'
@@ -38,8 +40,13 @@ def parse_args():
     parser.add_argument('--events-dir', default=DEFAULT_EVENTS_DIR)
     parser.add_argument('--backend-base-url', default='')
     parser.add_argument('--robot-id', default='tc-01')
-    parser.add_argument('--static-index-version', default='v2')
-    return parser.parse_args(remove_ros_args(args=sys.argv)[1:])
+    parser.add_argument('--static-index-version', default='')
+    options = parser.parse_args(remove_ros_args(args=sys.argv)[1:])
+    options.static_index_version = read_index_version(
+        options.events_dir,
+        options.static_index_version,
+    )
+    return options
 
 
 def make_pose(navigator, x, y):

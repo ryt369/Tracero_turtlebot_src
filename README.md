@@ -70,22 +70,28 @@ Inside the container:
 
 ```bash
 ros2 run tracero_agent build_static_index \
-  --version v2 \
-  --output /root/turtlebot3_ws/events/static_index_v2.json
+  --output /root/turtlebot3_ws/events/static_index.json
 ```
+
+When `--version` is omitted, the indexer derives an immutable content
+fingerprint such as `tc01-a1b2c3d4e5f6` and writes it to
+`/root/turtlebot3_ws/events/static_index_version.txt`. Agent and benchmark
+read that file automatically, so events reference the same index version.
+Use `--version NAME` only when reproducing a previously named index.
 
 Upload it to the backend:
 
 ```bash
 ros2 run tracero_agent build_static_index \
-  --version v2 \
-  --output /root/turtlebot3_ws/events/static_index_v2.json \
+  --output /root/turtlebot3_ws/events/static_index.json \
   --backend-base-url http://BACKEND_HOST:PORT \
-  --upload
+  --upload \
+  --strict
 ```
 
 The index always contains the TC-01 topics. Missing source mappings remain as
-empty `publishers` or `subscribers` arrays.
+empty `publishers` or `subscribers` arrays. Omit `--strict` for local
+development when commit metadata is unavailable; use it for formal delivery.
 
 ## Run TC-01
 

@@ -18,6 +18,8 @@ from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import LaserScan
 
+from tracero_agent.index_version import read_index_version
+
 
 class TraceroAgent(Node):
     def __init__(self):
@@ -28,7 +30,7 @@ class TraceroAgent(Node):
         self.declare_parameter('robot_id', 'tc-01')
         self.declare_parameter('run_id', 'manual')
         self.declare_parameter('event_type', 'obstacle_near')
-        self.declare_parameter('static_index_version', 'v2')
+        self.declare_parameter('static_index_version', '')
         self.declare_parameter('backend_base_url', '')
         self.declare_parameter('http_timeout_sec', 3.0)
         self.declare_parameter('controller_frequency', 20.0)
@@ -40,9 +42,19 @@ class TraceroAgent(Node):
         self.robot_id = str(self.get_parameter('robot_id').value)
         self.run_id = str(self.get_parameter('run_id').value)
         self.event_type = str(self.get_parameter('event_type').value)
-        self.static_index_version = str(
+        requested_index_version = str(
             self.get_parameter('static_index_version').value
         )
+        try:
+            self.static_index_version = read_index_version(
+                self.output_dir,
+                requested_index_version,
+            )
+        except RuntimeError as error:
+            raise RuntimeError(
+                'Build the static index before starting tracero_agent, or '
+                'set the static_index_version parameter explicitly.'
+            ) from error
         self.backend_base_url = str(
             self.get_parameter('backend_base_url').value
         ).rstrip('/')

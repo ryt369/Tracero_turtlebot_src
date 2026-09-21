@@ -13,6 +13,11 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 import xml.etree.ElementTree as ET
 
+from tracero_agent.index_version import (
+    generate_index_version,
+    write_index_version,
+)
+
 
 TC01_TOPICS = (
     '/scan',
@@ -454,7 +459,8 @@ def endpoint_payload(endpoint: Endpoint) -> Dict:
         'line_start': line_start,
         'line_end': line_end,
         'code': location.code,
-        'highlight_lines': list(range(line_start, line_end + 1)),
+        'highlight_lines': [],
+        'related_params': [],
         'symbol_line_start': location.symbol_line_start,
         'symbol_line_end': location.symbol_line_end,
         'role': endpoint.role,
@@ -464,6 +470,58 @@ def endpoint_payload(endpoint: Endpoint) -> Dict:
         'language': endpoint.language,
         'message_type': endpoint.message_type,
     }
+
+
+def validate_record(record: Dict, strict: bool = False):
+    line_start = record.get('line_start')
+    line_end = record.get('line_end')
+    code = record.get('code')
+    highlights = record.get('highlight_lines')
+    if not isinstance(line_start, int) or line_start < 1:
+        raise ValueError('line_start must be a positive integer')
+    if not isinstance(line_end, int) or line_end < line_start:
+        raise ValueError('line_end must be >= line_start')
+    if not isinstance(code, list) or not all(
+        isinstance(line, str) for line in code
+    ):
+        raise ValueError('code must be an array of strings')
+    if len(code) != line_end - line_start + 1:
+        raise ValueError(
+            'code length does not match line_start/line_end'
+        )
+    if not isinstance(highlights, list) or not all(
+        isinstance(line, int) for line in highlights
+    ):
+        raise ValueError('highlight_lines must be an array of integers')
+    if any(line < line_start or line > line_end for line in highlights):
+        raise ValueError('highlight_lines contains an out-of-range line')
+    for field in ('repository', 'file_path'):
+        if not isinstance(record.get(field), str) or not record[field]:
+            raise ValueError(f'{field} must be non-empty')
+    if strict and not record.get('commit'):
+        raise ValueError(
+            f'commit is required in strict mode for {record["file_path"]}'
+        )
+
+
+def validate_index(payload: Dict, roots: Sequence[SourceRoot], strict=False):
+    if not isinstance(payload.get('version'), str) or not payload['version']:
+        raise ValueError('index version must be non-empty')
+    for topic_data in payload.get('index', {}).values():
+        for role in ('publishers', 'subscribers'):
+            for record in topic_data.get(role, []):
+                validate_record(record, strict=strict)
+    if strict:
+        missing = [root.label for root in roots if not root.repository]
+        missing += [
+            root.label for root in roots
+            if root.repository and not root.commit
+        ]
+        if missing:
+            raise ValueError(
+                'strict mode requires repository and commit metadata for: '
+                + ', '.join(missing)
+            )
 
 
 def deduplicate(records: List[Dict]) -> List[Dict]:
@@ -564,6 +622,23 @@ def upload_index(base_url: str, payload: Dict, timeout_sec: float):
         with urllib.request.urlopen(request, timeout=timeout_sec) as response:
             if not 200 <= response.status < 300:
                 raise RuntimeError(f'HTTP {response.status}')
+            response_body = response.read().decode('utf-8').strip()
+            if response_body:
+                try:
+                    response_payload = json.loads(response_body)
+                except json.JSONDecodeError as error:
+                    raise RuntimeError(
+                        'static index upload returned invalid JSON'
+                    ) from error
+                response_version = response_payload.get('version')
+                if (
+                    response_version is not None
+                    and response_version != payload.get('version')
+                ):
+                    raise RuntimeError(
+                        'backend returned a different static index version: '
+                        f'{response_version!r}'
+                    )
     except (urllib.error.URLError, OSError) as error:
         raise RuntimeError(f'static index upload failed: {error}') from error
 
@@ -649,11 +724,15 @@ def parse_args(argv: Optional[Sequence[str]] = None):
         type=parse_source_root,
         help='repeatable LABEL=/absolute/path source root',
     )
-    parser.add_argument('--version', default='v2')
+    parser.add_argument(
+        '--version',
+        default='',
+        help='explicit immutable version; default is a content fingerprint',
+    )
     parser.add_argument('--topic', action='append')
     parser.add_argument(
         '--output',
-        default='/root/turtlebot3_ws/events/static_index_v2.json',
+        default='/root/turtlebot3_ws/events/static_index.json',
     )
     parser.add_argument(
         '--source-version-file',
@@ -662,6 +741,11 @@ def parse_args(argv: Optional[Sequence[str]] = None):
     )
     parser.add_argument('--backend-base-url', default='')
     parser.add_argument('--upload', action='store_true')
+    parser.add_argument(
+        '--strict',
+        action='store_true',
+        help='require repository and commit metadata for formal delivery',
+    )
     parser.add_argument('--http-timeout-sec', type=float, default=5.0)
     return parser.parse_args(argv)
 
@@ -689,9 +773,25 @@ def main(argv: Optional[Sequence[str]] = None):
             for root in roots
             if root.repository
         }
+        if not payload['version']:
+            payload['version'] = generate_index_version(payload)
+        if not options.strict:
+            missing_commits = [
+                root.label for root in roots
+                if not root.repository or not root.commit
+            ]
+            if missing_commits:
+                print(
+                    'WARNING: missing repository/commit metadata for: '
+                    + ', '.join(missing_commits),
+                    file=sys.stderr,
+                )
         output_path = Path(options.output)
+        validate_index(payload, roots, strict=options.strict)
         atomic_write_json(output_path, payload)
+        write_index_version(str(output_path.parent), payload['version'])
         print(f'Static index written to: {output_path}')
+        print(f'Static index version: {payload["version"]}')
         for topic, entries in payload['index'].items():
             print(
                 f'  {topic}: {len(entries["publishers"])} publisher(s), '
