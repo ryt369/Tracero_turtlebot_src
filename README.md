@@ -103,7 +103,7 @@ ros2 run tracero_agent benchmark_tc01 \
   --start-x -2.0 \
   --start-y -0.5 \
   --goal-x 2.5 \
-  --goal-y 0.0 \
+  --goal-y -0.5 \
   --distance-ahead 0.75 \
   --scan-threshold 0.65 \
   --ros-args -p use_sim_time:=true
@@ -118,3 +118,34 @@ To post parameter snapshots and events, add:
 See [src/tracero_agent/STATIC_INDEX.md](src/tracero_agent/STATIC_INDEX.md) for
 additional static-index options and [events/README.md](events/README.md) for
 the event datasets.
+
+## Run TC-01-brake
+
+TC-01-brake routes Nav2 commands through `tracero_safety_controller`:
+Nav2 publishes `/cmd_vel_nav`, the safety controller exclusively publishes
+`/cmd_vel`, and the Agent records `/tracero/safety_event`. Start Nav2 with its
+controller output remapped and the safety controller started:
+
+```bash
+ros2 launch tracero_agent tc01_brake_nav2.launch.py \
+  nav2_launch_file:=/path/to/bringup_launch.py \
+  params_file:=/path/to/nav2_params.yaml \
+  map:=/path/to/map.yaml
+```
+
+Then run:
+
+```bash
+ros2 run tracero_agent benchmark_tc01 \
+  --brake \
+  --external-safety-controller \
+  --brake-input-topic /cmd_vel_nav \
+  --runs 1 \
+  --ros-args -p use_sim_time:=true
+```
+
+The controller limits linear deceleration with `--max-decel-linear` and
+publishes a `diagnostic_msgs/msg/DiagnosticArray` event on
+`/tracero/safety_event`. Its trigger distance includes stopping distance,
+sensor latency, and a safety margin. The static index includes this diagnostic
+topic so the backend can associate the safety decision with its source.

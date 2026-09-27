@@ -31,7 +31,7 @@ def parse_args():
     parser.add_argument('--start-x', type=float, default=-2.0)
     parser.add_argument('--start-y', type=float, default=-0.5)
     parser.add_argument('--goal-x', type=float, default=2.5)
-    parser.add_argument('--goal-y', type=float, default=0.0)
+    parser.add_argument('--goal-y', type=float, default=-0.5)
     parser.add_argument('--distance-ahead', type=float, default=0.75)
     parser.add_argument('--scan-threshold', type=float, default=0.65)
     parser.add_argument('--warmup-sec', type=float, default=5.5)
@@ -41,6 +41,19 @@ def parse_args():
     parser.add_argument('--backend-base-url', default='')
     parser.add_argument('--robot-id', default='tc-01')
     parser.add_argument('--static-index-version', default='')
+    parser.add_argument(
+        '--brake',
+        action='store_true',
+        help='start safety_controller for TC-01-brake',
+    )
+    parser.add_argument('--brake-input-topic', default='/cmd_vel_nav')
+    parser.add_argument('--max-decel-linear', type=float, default=0.8)
+    parser.add_argument('--max-decel-angular', type=float, default=1.5)
+    parser.add_argument(
+        '--external-safety-controller',
+        action='store_true',
+        help='use the safety_controller started by a launch file',
+    )
     options = parser.parse_args(remove_ros_args(args=sys.argv)[1:])
     options.static_index_version = read_index_version(
         options.events_dir,
@@ -142,7 +155,12 @@ def wait_for_run_event(events_dir, run_id, timeout_sec):
     return None
 
 
-def validate_event(json_path, scan_threshold, expected_index_version='v2'):
+def validate_event(
+    json_path,
+    scan_threshold,
+    expected_index_version='v2',
+    require_brake=False,
+):
     errors = []
     warnings = []
     with open(json_path, encoding='utf-8') as event_file:
@@ -203,6 +221,8 @@ def validate_event(json_path, scan_threshold, expected_index_version='v2'):
         '/local_costmap/costmap',
         '/navigate_to_pose/_action/status',
     )
+    if require_brake:
+        required_topics += ('/tracero/safety_event',)
     observed_topics = {sample.get('topic') for sample in samples}
     for topic in required_topics:
         if topic not in observed_topics:
@@ -232,6 +252,17 @@ def validate_event(json_path, scan_threshold, expected_index_version='v2'):
             f'front minimum {observed_min:.3f}m did not cross '
             f'{scan_threshold:.3f}m threshold'
         )
+
+    if require_brake:
+        brake_samples = [
+            sample for sample in samples
+            if sample.get('topic') == '/tracero/safety_event'
+        ]
+        if not any(
+            (sample.get('data') or {}).get('values', {}).get('active') == 'true'
+            for sample in brake_samples
+        ):
+            errors.append('no active emergency_brake diagnostic observed')
 
     if not any(
         sample.get('topic') == '/navigate_to_pose/_action/status'
@@ -291,6 +322,7 @@ def run_once(iteration, options, navigator, delete_client, reset_world_client):
     spawn_log_path = log_dir / f'run_{iteration:02d}_spawn.log'
 
     agent_process = None
+    safety_process = None
     spawn_process = None
     with open(agent_log_path, 'w', encoding='utf-8') as agent_log:
         try:
@@ -319,6 +351,23 @@ def run_once(iteration, options, navigator, delete_client, reset_world_client):
                 text=True,
                 start_new_session=True,
             )
+            if options.brake and not options.external_safety_controller:
+                safety_process = subprocess.Popen(
+                    [
+                        'ros2', 'run', 'tracero_agent', 'safety_controller',
+                        '--ros-args',
+                        '-p', 'use_sim_time:=true',
+                        '-p',
+                        f'input_cmd_topic:={options.brake_input_topic}',
+                        '-p', f'max_decel_linear:={options.max_decel_linear}',
+                        '-p',
+                        f'max_decel_angular:={options.max_decel_angular}',
+                    ],
+                    stdout=agent_log,
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                    start_new_session=True,
+                )
             print(
                 f'  warming Agent buffer for '
                 f'{options.warmup_sec:.1f}s ROS and wall time'
@@ -409,6 +458,7 @@ def run_once(iteration, options, navigator, delete_client, reset_world_client):
                 event_path,
                 options.scan_threshold,
                 options.static_index_version,
+                options.brake,
             )
             result['run_id'] = run_id
             result['agent_log'] = str(agent_log_path)
@@ -416,6 +466,7 @@ def run_once(iteration, options, navigator, delete_client, reset_world_client):
             return result
         finally:
             stop_process(spawn_process)
+            stop_process(safety_process)
             stop_process(agent_process)
             try:
                 navigator.cancelTask()

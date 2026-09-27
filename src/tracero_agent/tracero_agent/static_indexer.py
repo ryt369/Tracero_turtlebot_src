@@ -25,6 +25,7 @@ TC01_TOPICS = (
     '/cmd_vel',
     '/local_costmap/costmap',
     '/navigate_to_pose/_action/status',
+    '/tracero/safety_event',
 )
 SOURCE_SUFFIXES = {'.py': 'python', '.cpp': 'cpp', '.cc': 'cpp',
                    '.cxx': 'cpp', '.h': 'cpp', '.hh': 'cpp',

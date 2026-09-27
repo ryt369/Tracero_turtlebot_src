@@ -14,6 +14,9 @@ setup(
             'requirements-static-index.txt',
             'STATIC_INDEX.md',
         ]),
+        ('share/' + package_name + '/launch', [
+            'launch/tc01_brake_nav2.launch.py',
+        ]),
     ],
     install_requires=[
         'setuptools',
@@ -37,6 +40,7 @@ setup(
             'spawn_tc01 = tracero_agent.spawn_tc01:main',
             'benchmark_tc01 = tracero_agent.run_tc01_benchmark:main',
             'build_static_index = tracero_agent.static_indexer:main',
+            'safety_controller = tracero_agent.safety_controller:main',
         ],
     },
     

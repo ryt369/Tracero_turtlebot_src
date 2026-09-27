@@ -10,6 +10,11 @@ The static indexer maps ROS 2 topic declarations to Python and C++ source
 locations. It keeps unresolved TC-01 topics in the output with empty
 `publishers` or `subscribers` arrays.
 
+TC-01-brake uses `/cmd_vel_nav` as Nav2's input to the safety controller and
+`/cmd_vel` as the controller's exclusive output. The controller publishes
+diagnostics on `/tracero/safety_event`; the benchmark must start Nav2 with its
+velocity output remapped to `/cmd_vel_nav`.
+
 Install the parser dependencies in the runtime image:
 
 ```bash

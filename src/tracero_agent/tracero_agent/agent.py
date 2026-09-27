@@ -12,6 +12,7 @@ from typing import Dict, List
 
 import rclpy
 from action_msgs.msg import GoalStatusArray
+from diagnostic_msgs.msg import DiagnosticArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import OccupancyGrid, Odometry
 from rclpy.node import Node
@@ -110,6 +111,12 @@ class TraceroAgent(Node):
             GoalStatusArray,
             '/navigate_to_pose/_action/status',
             self.nav_status_callback,
+            10,
+        )
+        self.create_subscription(
+            DiagnosticArray,
+            '/tracero/safety_event',
+            self.safety_event_callback,
             10,
         )
         self.timer = self.create_timer(0.05, self.control_loop)
@@ -228,6 +235,26 @@ class TraceroAgent(Node):
                 'status': status_map.get(status_code, f'CODE_{status_code}'),
             },
         )
+
+    def safety_event_callback(self, msg: DiagnosticArray):
+        for status in msg.status:
+            values = {
+                item.key: item.value for item in status.values
+            }
+            level = status.level
+            if isinstance(level, bytes):
+                level = int.from_bytes(level, byteorder='little')
+            else:
+                level = int(level)
+            self.append_topic_sample(
+                '/tracero/safety_event',
+                {
+                    'name': status.name,
+                    'level': level,
+                    'message': status.message,
+                    'values': values,
+                },
+            )
 
     def trigger_event(
         self,
