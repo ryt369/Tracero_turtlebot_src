@@ -1,0 +1,49 @@
+{
+  "benchmark": "TC-01",
+  "started_at": "2026-09-27T10:10:20.027285+00:00",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "goal_x": 2.5,
+    "goal_y": 0.0,
+    "distance_ahead": 0.75,
+    "scan_threshold": 0.65,
+    "warmup_sec": 5.5,
+    "event_timeout_sec": 15.0,
+    "motion_timeout_sec": 30.0,
+    "events_dir": "/root/turtlebot3_ws/events",
+    "backend_base_url": "",
+    "robot_id": "tc-01",
+    "static_index_version": "tc01-af61da8d009e",
+    "brake": true,
+    "brake_input_topic": "/cmd_vel_nav",
+    "max_decel_linear": 0.8,
+    "max_decel_angular": 1.5,
+    "external_safety_controller": true
+  },
+  "runs": [
+    {
+      "passed": false,
+      "errors": [
+        "no sample contains topic /tracero/safety_event",
+        "no active emergency_brake diagnostic observed"
+      ],
+      "warnings": [],
+      "event_file": "/root/turtlebot3_ws/events/event_tc01_benchmark_1790503831955220571_run_01_ed14e2f7_1790503839231.json",
+      "pre_samples": 299,
+      "post_samples": 148,
+      "pre_span_sec": 4.986,
+      "post_span_sec": 1.972,
+      "observed_min_distance": 0.411,
+      "run_id": "benchmark_1790503831955220571_run_01_ed14e2f7",
+      "agent_log": "/root/turtlebot3_ws/events/benchmark_logs/run_01_agent.log",
+      "spawn_log": "/root/turtlebot3_ws/events/benchmark_logs/run_01_spawn.log",
+      "iteration": 1
+    }
+  ],
+  "passed_runs": 0,
+  "total_runs": 1,
+  "pass_rate": 0.0,
+  "finished_at": "2026-09-27T10:10:42.883879+00:00"
+}

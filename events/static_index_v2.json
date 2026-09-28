@@ -1,0 +1,1228 @@
+{
+  "version": "v2",
+  "index": {
+    "/scan": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "tracero_agent",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/agent.py",
+          "function_name": "TraceroAgent.__init__",
+          "line_start": 88,
+          "line_end": 88,
+          "code": [
+            "        self.create_subscription(LaserScan, '/scan', self.scan_callback, qos_scan)"
+          ],
+          "highlight_lines": [
+            88
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 116,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 88,
+          "snippet": "self.create_subscription(LaserScan, '/scan', self.scan_callback, qos_scan)",
+          "language": "python",
+          "message_type": "LaserScan"
+        },
+        {
+          "node": "turtlebot3_obstacle_detection",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "function_name": "Turtlebot3ObstacleDetection.__init__",
+          "line_start": 49,
+          "line_end": 53,
+          "code": [
+            "        self.scan_sub = self.create_subscription(",
+            "            LaserScan,",
+            "            'scan',",
+            "            self.scan_callback,",
+            "            qos_profile=qos_profile_sensor_data)"
+          ],
+          "highlight_lines": [
+            49,
+            50,
+            51,
+            52,
+            53
+          ],
+          "symbol_line_start": 29,
+          "symbol_line_end": 61,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "line": 49,
+          "snippet": "self.scan_sub = self.create_subscription( LaserScan, 'scan', self.scan_callback,",
+          "language": "python",
+          "message_type": "LaserScan"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "repository": "turtlebot3_simulations",
+          "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+          "package": "turtlebot3_gazebo",
+          "file_path": "turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "function_name": "Turtlebot3Drive::Turtlebot3Drive",
+          "line_start": 45,
+          "line_end": 51,
+          "code": [
+            "  scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(",
+            "    \"scan\", \\",
+            "    rclcpp::SensorDataQoS(), \\",
+            "    std::bind(",
+            "      &Turtlebot3Drive::scan_callback, \\",
+            "      this, \\",
+            "      std::placeholders::_1));"
+          ],
+          "highlight_lines": [
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 61,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 45,
+          "snippet": "scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>( \"scan\", \\ rclcpp::SensorDataQoS(), \\ std::bind(",
+          "language": "cpp",
+          "message_type": "sensor_msgs::msg::LaserScan"
+        }
+      ]
+    },
+    "/odom": {
+      "publishers": [
+        {
+          "node": "turtlebot3_fake_node",
+          "repository": "turtlebot3_simulations",
+          "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+          "package": "turtlebot3_fake_node",
+          "file_path": "turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "function_name": "Turtlebot3Fake::update_callback",
+          "line_start": 166,
+          "line_end": 166,
+          "code": [
+            "  odom_pub_->publish(odom_);"
+          ],
+          "highlight_lines": [
+            166
+          ],
+          "symbol_line_start": 151,
+          "symbol_line_end": 179,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "line": 166,
+          "snippet": "odom_pub_->publish(odom_);",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        },
+        {
+          "node": "odometry",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_node",
+          "file_path": "turtlebot3_node/src/odometry.cpp",
+          "function_name": "Odometry::publish",
+          "line_start": 207,
+          "line_end": 207,
+          "code": [
+            "  odom_pub_->publish(std::move(odom_msg));"
+          ],
+          "highlight_lines": [
+            207
+          ],
+          "symbol_line_start": 158,
+          "symbol_line_end": 212,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_node/src/odometry.cpp",
+          "line": 207,
+          "snippet": "odom_pub_->publish(std::move(odom_msg));",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        }
+      ],
+      "subscribers": [
+        {
+          "node": "is_stuck_condition",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_behavior_tree",
+          "file_path": "nav2_behavior_tree/plugins/condition/is_stuck_condition.cpp",
+          "function_name": "IsStuckCondition::IsStuckCondition",
+          "line_start": 43,
+          "line_end": 47,
+          "code": [
+            "  odom_sub_ = node_->create_subscription<nav_msgs::msg::Odometry>(",
+            "    \"odom\",",
+            "    rclcpp::SystemDefaultsQoS(),",
+            "    std::bind(&IsStuckCondition::onOdomReceived, this, std::placeholders::_1),",
+            "    sub_option);"
+          ],
+          "highlight_lines": [
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "symbol_line_start": 25,
+          "symbol_line_end": 52,
+          "role": "subscribers",
+          "file": "nav2_ws/src/navigation2/nav2_behavior_tree/plugins/condition/is_stuck_condition.cpp",
+          "line": 43,
+          "snippet": "odom_sub_ = node_->create_subscription<nav_msgs::msg::Odometry>( \"odom\", rclcpp::SystemDefaultsQoS(), std::bind(&IsStuckCondition::onOdomReceived, this, std::placeholders::_1),",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        },
+        {
+          "node": "tracero_agent",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/agent.py",
+          "function_name": "TraceroAgent.__init__",
+          "line_start": 89,
+          "line_end": 89,
+          "code": [
+            "        self.create_subscription(Odometry, '/odom', self.odom_callback, 10)"
+          ],
+          "highlight_lines": [
+            89
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 116,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 89,
+          "snippet": "self.create_subscription(Odometry, '/odom', self.odom_callback, 10)",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "spawn_tc01",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/spawn_tc01.py",
+          "function_name": "TC01Spawner.__init__",
+          "line_start": 44,
+          "line_end": 44,
+          "code": [
+            "        self.create_subscription(Odometry, '/odom', self.odom_callback, 10)"
+          ],
+          "highlight_lines": [
+            44
+          ],
+          "symbol_line_start": 20,
+          "symbol_line_end": 48,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/spawn_tc01.py",
+          "line": 44,
+          "snippet": "self.create_subscription(Odometry, '/odom', self.odom_callback, 10)",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "function_name": "Turtlebot3AbsoluteMove.__init__",
+          "line_start": 65,
+          "line_end": 69,
+          "code": [
+            "        self.odom_sub = self.create_subscription(",
+            "            Odometry,",
+            "            'odom',",
+            "            self.get_odom,",
+            "            10)"
+          ],
+          "highlight_lines": [
+            65,
+            66,
+            67,
+            68,
+            69
+          ],
+          "symbol_line_start": 39,
+          "symbol_line_end": 76,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 65,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.get_odom,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_interactive_marker",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "function_name": "Turtlebot3InteractiveMarker.__init__",
+          "line_start": 52,
+          "line_end": 56,
+          "code": [
+            "        self.odom_sub = self.create_subscription(",
+            "            Odometry,",
+            "            'odom',",
+            "            self.odom_callback,",
+            "            qos)"
+          ],
+          "highlight_lines": [
+            52,
+            53,
+            54,
+            55,
+            56
+          ],
+          "symbol_line_start": 36,
+          "symbol_line_end": 89,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "line": 52,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "function_name": "Turtlebot3PatrolServer.__init__",
+          "line_start": 65,
+          "line_end": 67,
+          "code": [
+            "        self.odom_sub = self.create_subscription(",
+            "            Odometry, 'odom', self.odom_callback, qos",
+            "        )"
+          ],
+          "highlight_lines": [
+            65,
+            66,
+            67
+          ],
+          "symbol_line_start": 38,
+          "symbol_line_end": 67,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 65,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback, qos )",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "function_name": "Turtlebot3RelativeMove.__init__",
+          "line_start": 95,
+          "line_end": 99,
+          "code": [
+            "        self.odom_sub = self.create_subscription(",
+            "            Odometry,",
+            "            'odom',",
+            "            self.odom_callback,",
+            "            qos)"
+          ],
+          "highlight_lines": [
+            95,
+            96,
+            97,
+            98,
+            99
+          ],
+          "symbol_line_start": 77,
+          "symbol_line_end": 103,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 95,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "repository": "turtlebot3_simulations",
+          "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+          "package": "turtlebot3_gazebo",
+          "file_path": "turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "function_name": "Turtlebot3Drive::Turtlebot3Drive",
+          "line_start": 52,
+          "line_end": 53,
+          "code": [
+            "  odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(",
+            "    \"odom\", qos, std::bind(&Turtlebot3Drive::odom_callback, this, std::placeholders::_1));"
+          ],
+          "highlight_lines": [
+            52,
+            53
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 61,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 52,
+          "snippet": "odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>( \"odom\", qos, std::bind(&Turtlebot3Drive::odom_callback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        }
+      ]
+    },
+    "/cmd_vel": {
+      "publishers": [
+        {
+          "node": "timed_behavior",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_behaviors",
+          "file_path": "nav2_behaviors/include/nav2_behaviors/timed_behavior.hpp",
+          "function_name": "stopRobot",
+          "line_start": 269,
+          "line_end": 269,
+          "code": [
+            "    vel_pub_->publish(std::move(cmd_vel));"
+          ],
+          "highlight_lines": [
+            269
+          ],
+          "symbol_line_start": 262,
+          "symbol_line_end": 270,
+          "role": "publishers",
+          "file": "nav2_ws/src/navigation2/nav2_behaviors/include/nav2_behaviors/timed_behavior.hpp",
+          "line": 269,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "controller_server",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_controller",
+          "file_path": "nav2_controller/src/controller_server.cpp",
+          "function_name": "ControllerServer::publishVelocity",
+          "line_start": 571,
+          "line_end": 571,
+          "code": [
+            "    vel_publisher_->publish(std::move(cmd_vel));"
+          ],
+          "highlight_lines": [
+            571
+          ],
+          "symbol_line_start": 567,
+          "symbol_line_end": 573,
+          "role": "publishers",
+          "file": "nav2_ws/src/navigation2/nav2_controller/src/controller_server.cpp",
+          "line": 571,
+          "snippet": "vel_publisher_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "DummyController",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_system_tests",
+          "file_path": "nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "function_name": "DummyController::followPath",
+          "line_start": 82,
+          "line_end": 82,
+          "code": [
+            "    vel_pub_->publish(std::move(cmd_vel));"
+          ],
+          "highlight_lines": [
+            82
+          ],
+          "symbol_line_start": 53,
+          "symbol_line_end": 93,
+          "role": "publishers",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "line": 82,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "DummyController",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_system_tests",
+          "file_path": "nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "function_name": "DummyController::setZeroVelocity",
+          "line_start": 101,
+          "line_end": 101,
+          "code": [
+            "  vel_pub_->publish(std::move(cmd_vel));"
+          ],
+          "highlight_lines": [
+            101
+          ],
+          "symbol_line_start": 95,
+          "symbol_line_end": 102,
+          "role": "publishers",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "line": 101,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "function_name": "Turtlebot3AbsoluteMove.timer_callback",
+          "line_start": 104,
+          "line_end": 104,
+          "code": [
+            "            self.cmd_vel_pub.publish(self.cmd_vel)"
+          ],
+          "highlight_lines": [
+            104
+          ],
+          "symbol_line_start": 78,
+          "symbol_line_end": 134,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 104,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "function_name": "Turtlebot3AbsoluteMove.timer_callback",
+          "line_start": 125,
+          "line_end": 125,
+          "code": [
+            "                self.cmd_vel_pub.publish(self.cmd_vel)"
+          ],
+          "highlight_lines": [
+            125
+          ],
+          "symbol_line_start": 78,
+          "symbol_line_end": 134,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 125,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "function_name": "Turtlebot3AbsoluteMove.timer_callback",
+          "line_start": 134,
+          "line_end": 134,
+          "code": [
+            "        self.cmd_vel_pub.publish(self.cmd_vel)"
+          ],
+          "highlight_lines": [
+            134
+          ],
+          "symbol_line_start": 78,
+          "symbol_line_end": 134,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 134,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_interactive_marker",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "function_name": "Turtlebot3InteractiveMarker.publish_cmd_vel",
+          "line_start": 166,
+          "line_end": 166,
+          "code": [
+            "        self.cmd_vel_pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            166
+          ],
+          "symbol_line_start": 126,
+          "symbol_line_end": 167,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "line": 166,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_obstacle_detection",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "function_name": "Turtlebot3ObstacleDetection.detect_obstacle",
+          "line_start": 91,
+          "line_end": 91,
+          "code": [
+            "        self.cmd_vel_pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            91
+          ],
+          "symbol_line_start": 74,
+          "symbol_line_end": 91,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "line": 91,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "function_name": "Turtlebot3PatrolServer.init_twist",
+          "line_start": 72,
+          "line_end": 72,
+          "code": [
+            "        self.cmd_vel_pub.publish(self.twist)"
+          ],
+          "highlight_lines": [
+            72
+          ],
+          "symbol_line_start": 69,
+          "symbol_line_end": 72,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 72,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "function_name": "Turtlebot3PatrolServer.go_front",
+          "line_start": 90,
+          "line_end": 90,
+          "code": [
+            "            self.cmd_vel_pub.publish(self.twist)"
+          ],
+          "highlight_lines": [
+            90
+          ],
+          "symbol_line_start": 83,
+          "symbol_line_end": 93,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 90,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "function_name": "Turtlebot3PatrolServer.turn",
+          "line_start": 115,
+          "line_end": 115,
+          "code": [
+            "            self.cmd_vel_pub.publish(self.twist)"
+          ],
+          "highlight_lines": [
+            115
+          ],
+          "symbol_line_start": 95,
+          "symbol_line_end": 117,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 115,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "function_name": "Turtlebot3RelativeMove.generate_path",
+          "line_start": 164,
+          "line_end": 164,
+          "code": [
+            "                self.cmd_vel_pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            164
+          ],
+          "symbol_line_start": 116,
+          "symbol_line_end": 169,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 164,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "function_name": "Turtlebot3RelativeMove.generate_path",
+          "line_start": 169,
+          "line_end": 169,
+          "code": [
+            "                self.cmd_vel_pub.publish(stamped)"
+          ],
+          "highlight_lines": [
+            169
+          ],
+          "symbol_line_start": 116,
+          "symbol_line_end": 169,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 169,
+          "snippet": "self.cmd_vel_pub.publish(stamped)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_example",
+          "file_path": "turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "function_name": "main",
+          "line_start": 233,
+          "line_end": 233,
+          "code": [
+            "        node.cmd_vel_pub.publish(stop_twist)"
+          ],
+          "highlight_lines": [
+            233
+          ],
+          "symbol_line_start": 222,
+          "symbol_line_end": 236,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 233,
+          "snippet": "node.cmd_vel_pub.publish(stop_twist)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "repository": "turtlebot3_simulations",
+          "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+          "package": "turtlebot3_gazebo",
+          "file_path": "turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "function_name": "Turtlebot3Drive::update_cmd_vel",
+          "line_start": 104,
+          "line_end": 104,
+          "code": [
+            "  cmd_vel_pub_->publish(cmd_vel);"
+          ],
+          "highlight_lines": [
+            104
+          ],
+          "symbol_line_start": 98,
+          "symbol_line_end": 105,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 104,
+          "snippet": "cmd_vel_pub_->publish(cmd_vel);",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 219,
+          "line_end": 219,
+          "code": [
+            "                pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            219
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 219,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 219,
+          "line_end": 219,
+          "code": [
+            "                pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            219
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 219,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 232,
+          "line_end": 232,
+          "code": [
+            "                pub.publish(twist_stamped)"
+          ],
+          "highlight_lines": [
+            232
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 232,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 232,
+          "line_end": 232,
+          "code": [
+            "                pub.publish(twist_stamped)"
+          ],
+          "highlight_lines": [
+            232
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 232,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 246,
+          "line_end": 246,
+          "code": [
+            "            pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            246
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 246,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 246,
+          "line_end": 246,
+          "code": [
+            "            pub.publish(twist)"
+          ],
+          "highlight_lines": [
+            246
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 246,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 257,
+          "line_end": 257,
+          "code": [
+            "            pub.publish(twist_stamped)"
+          ],
+          "highlight_lines": [
+            257
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 257,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "repository": "turtlebot3",
+          "commit": "ed3521af40f2f73711aace307853bbf125583418",
+          "package": "turtlebot3_teleop",
+          "file_path": "turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "function_name": "main",
+          "line_start": 257,
+          "line_end": 257,
+          "code": [
+            "            pub.publish(twist_stamped)"
+          ],
+          "highlight_lines": [
+            257
+          ],
+          "symbol_line_start": 141,
+          "symbol_line_end": 260,
+          "role": "publishers",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 257,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        }
+      ],
+      "subscribers": [
+        {
+          "node": "assisted_teleop_behavior_tester",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_system_tests",
+          "file_path": "nav2_system_tests/src/behaviors/assisted_teleop/assisted_teleop_behavior_tester.cpp",
+          "function_name": "AssistedTeleopBehaviorTester::AssistedTeleopBehaviorTester",
+          "line_start": 63,
+          "line_end": 66,
+          "code": [
+            "  filtered_vel_sub_ = node_->create_subscription<geometry_msgs::msg::Twist>(",
+            "    \"cmd_vel\",",
+            "    rclcpp::SystemDefaultsQoS(),",
+            "    std::bind(&AssistedTeleopBehaviorTester::filteredVelCallback, this, std::placeholders::_1));"
+          ],
+          "highlight_lines": [
+            63,
+            64,
+            65,
+            66
+          ],
+          "symbol_line_start": 34,
+          "symbol_line_end": 86,
+          "role": "subscribers",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/behaviors/assisted_teleop/assisted_teleop_behavior_tester.cpp",
+          "line": 63,
+          "snippet": "filtered_vel_sub_ = node_->create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", rclcpp::SystemDefaultsQoS(), std::bind(&AssistedTeleopBehaviorTester::filteredVelCallback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "velocity_smoother",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_velocity_smoother",
+          "file_path": "nav2_velocity_smoother/src/velocity_smoother.cpp",
+          "function_name": "VelocitySmoother::on_configure",
+          "line_start": 124,
+          "line_end": 126,
+          "code": [
+            "  cmd_sub_ = create_subscription<geometry_msgs::msg::Twist>(",
+            "    \"cmd_vel\", rclcpp::QoS(1),",
+            "    std::bind(&VelocitySmoother::inputCommandCallback, this, std::placeholders::_1));"
+          ],
+          "highlight_lines": [
+            124,
+            125,
+            126
+          ],
+          "symbol_line_start": 46,
+          "symbol_line_end": 129,
+          "role": "subscribers",
+          "file": "nav2_ws/src/navigation2/nav2_velocity_smoother/src/velocity_smoother.cpp",
+          "line": 124,
+          "snippet": "cmd_sub_ = create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", rclcpp::QoS(1), std::bind(&VelocitySmoother::inputCommandCallback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "tracero_agent",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/agent.py",
+          "function_name": "TraceroAgent.__init__",
+          "line_start": 90,
+          "line_end": 90,
+          "code": [
+            "        self.create_subscription(Twist, '/cmd_vel', self.cmd_vel_callback, 10)"
+          ],
+          "highlight_lines": [
+            90
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 116,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 90,
+          "snippet": "self.create_subscription(Twist, '/cmd_vel', self.cmd_vel_callback, 10)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_fake_node",
+          "repository": "turtlebot3_simulations",
+          "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+          "package": "turtlebot3_fake_node",
+          "file_path": "turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "function_name": "Turtlebot3Fake::Turtlebot3Fake",
+          "line_start": 48,
+          "line_end": 54,
+          "code": [
+            "  cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(",
+            "    \"cmd_vel\", \\",
+            "    qos, \\",
+            "    std::bind(",
+            "      &Turtlebot3Fake::command_velocity_callback, \\",
+            "      this, \\",
+            "      std::placeholders::_1));"
+          ],
+          "highlight_lines": [
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "symbol_line_start": 24,
+          "symbol_line_end": 62,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "line": 48,
+          "snippet": "cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", \\ qos, \\ std::bind(",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        }
+      ]
+    },
+    "/local_costmap/costmap": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "tracero_agent",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/agent.py",
+          "function_name": "TraceroAgent.__init__",
+          "line_start": 91,
+          "line_end": 96,
+          "code": [
+            "        self.create_subscription(",
+            "            OccupancyGrid,",
+            "            '/local_costmap/costmap',",
+            "            self.costmap_callback,",
+            "            qos_costmap,",
+            "        )"
+          ],
+          "highlight_lines": [
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 116,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 91,
+          "snippet": "self.create_subscription( OccupancyGrid, '/local_costmap/costmap', self.costmap_callback,",
+          "language": "python",
+          "message_type": "OccupancyGrid"
+        }
+      ]
+    },
+    "/navigate_to_pose/_action/status": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "nav2_panel",
+          "repository": "navigation2",
+          "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+          "package": "nav2_rviz_plugins",
+          "file_path": "nav2_rviz_plugins/src/nav2_panel.cpp",
+          "function_name": "Nav2Panel::onInitialize",
+          "line_start": 406,
+          "line_end": 415,
+          "code": [
+            "  navigation_goal_status_sub_ = node->create_subscription<action_msgs::msg::GoalStatusArray>(",
+            "    \"navigate_to_pose/_action/status\",",
+            "    rclcpp::SystemDefaultsQoS(),",
+            "    [this](const action_msgs::msg::GoalStatusArray::SharedPtr msg) {",
+            "      navigation_goal_status_indicator_->setText(",
+            "        getGoalStatusLabel(msg->status_list.back().status));",
+            "      if (msg->status_list.back().status != action_msgs::msg::GoalStatus::STATUS_EXECUTING) {",
+            "        navigation_feedback_indicator_->setText(getNavToPoseFeedbackLabel());",
+            "      }",
+            "    });"
+          ],
+          "highlight_lines": [
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415
+          ],
+          "symbol_line_start": 384,
+          "symbol_line_end": 426,
+          "role": "subscribers",
+          "file": "nav2_ws/src/navigation2/nav2_rviz_plugins/src/nav2_panel.cpp",
+          "line": 406,
+          "snippet": "navigation_goal_status_sub_ = node->create_subscription<action_msgs::msg::GoalStatusArray>( \"navigate_to_pose/_action/status\", rclcpp::SystemDefaultsQoS(), [this](const action_msgs::msg::GoalStatusArray::SharedPtr msg) {",
+          "language": "cpp",
+          "message_type": "action_msgs::msg::GoalStatusArray"
+        },
+        {
+          "node": "tracero_agent",
+          "repository": "tracero_agent",
+          "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+          "package": "tracero_agent",
+          "file_path": "tracero_agent/agent.py",
+          "function_name": "TraceroAgent.__init__",
+          "line_start": 97,
+          "line_end": 102,
+          "code": [
+            "        self.create_subscription(",
+            "            GoalStatusArray,",
+            "            '/navigate_to_pose/_action/status',",
+            "            self.nav_status_callback,",
+            "            10,",
+            "        )"
+          ],
+          "highlight_lines": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102
+          ],
+          "symbol_line_start": 23,
+          "symbol_line_end": 116,
+          "role": "subscribers",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 97,
+          "snippet": "self.create_subscription( GoalStatusArray, '/navigate_to_pose/_action/status', self.nav_status_callback,",
+          "language": "python",
+          "message_type": "GoalStatusArray"
+        }
+      ]
+    }
+  },
+  "repositories": {
+    "navigation2": {
+      "commit": "3c3db59d6969d8ecee8e68468693d006397f4a0c",
+      "source_root": "nav2_ws/src/navigation2"
+    },
+    "turtlebot3": {
+      "commit": "ed3521af40f2f73711aace307853bbf125583418",
+      "source_root": "turtlebot3_ws/src/turtlebot3"
+    },
+    "turtlebot3_msgs": {
+      "commit": "bf28eaed979bec8c79ed19a8aa0e26e96a6529d1",
+      "source_root": "turtlebot3_ws/src/turtlebot3_msgs"
+    },
+    "turtlebot3_simulations": {
+      "commit": "a35a56c8b04877dc89772b598084d8ce648a9023",
+      "source_root": "turtlebot3_ws/src/turtlebot3_simulations"
+    },
+    "tracero_agent": {
+      "commit": "77f596eb0d8018ba3b6e89d466958a90db1cc182",
+      "source_root": "turtlebot3_ws/src/tracero_agent"
+    }
+  }
+}

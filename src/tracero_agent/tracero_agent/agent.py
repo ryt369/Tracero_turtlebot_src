@@ -12,11 +12,14 @@ from typing import Dict, List
 
 import rclpy
 from action_msgs.msg import GoalStatusArray
+from diagnostic_msgs.msg import DiagnosticArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import OccupancyGrid, Odometry
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import LaserScan
+
+from tracero_agent.index_version import read_index_version
 
 
 class TraceroAgent(Node):
@@ -28,7 +31,7 @@ class TraceroAgent(Node):
         self.declare_parameter('robot_id', 'tc-01')
         self.declare_parameter('run_id', 'manual')
         self.declare_parameter('event_type', 'obstacle_near')
-        self.declare_parameter('static_index_version', 'v1')
+        self.declare_parameter('static_index_version', '')
         self.declare_parameter('backend_base_url', '')
         self.declare_parameter('http_timeout_sec', 3.0)
         self.declare_parameter('controller_frequency', 20.0)
@@ -40,9 +43,19 @@ class TraceroAgent(Node):
         self.robot_id = str(self.get_parameter('robot_id').value)
         self.run_id = str(self.get_parameter('run_id').value)
         self.event_type = str(self.get_parameter('event_type').value)
-        self.static_index_version = str(
+        requested_index_version = str(
             self.get_parameter('static_index_version').value
         )
+        try:
+            self.static_index_version = read_index_version(
+                self.output_dir,
+                requested_index_version,
+            )
+        except RuntimeError as error:
+            raise RuntimeError(
+                'Build the static index before starting tracero_agent, or '
+                'set the static_index_version parameter explicitly.'
+            ) from error
         self.backend_base_url = str(
             self.get_parameter('backend_base_url').value
         ).rstrip('/')
@@ -98,6 +111,12 @@ class TraceroAgent(Node):
             GoalStatusArray,
             '/navigate_to_pose/_action/status',
             self.nav_status_callback,
+            10,
+        )
+        self.create_subscription(
+            DiagnosticArray,
+            '/tracero/safety_event',
+            self.safety_event_callback,
             10,
         )
         self.timer = self.create_timer(0.05, self.control_loop)
@@ -216,6 +235,26 @@ class TraceroAgent(Node):
                 'status': status_map.get(status_code, f'CODE_{status_code}'),
             },
         )
+
+    def safety_event_callback(self, msg: DiagnosticArray):
+        for status in msg.status:
+            values = {
+                item.key: item.value for item in status.values
+            }
+            level = status.level
+            if isinstance(level, bytes):
+                level = int.from_bytes(level, byteorder='little')
+            else:
+                level = int(level)
+            self.append_topic_sample(
+                '/tracero/safety_event',
+                {
+                    'name': status.name,
+                    'level': level,
+                    'message': status.message,
+                    'values': values,
+                },
+            )
 
     def trigger_event(
         self,

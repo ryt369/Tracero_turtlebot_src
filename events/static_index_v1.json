@@ -1,0 +1,384 @@
+{
+  "version": "v1",
+  "index": {
+    "/scan": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "tracero_agent",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 88,
+          "snippet": "self.create_subscription(LaserScan, '/scan', self.scan_callback, qos_scan)",
+          "language": "python",
+          "message_type": "LaserScan"
+        },
+        {
+          "node": "turtlebot3_obstacle_detection",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "line": 49,
+          "snippet": "self.scan_sub = self.create_subscription( LaserScan, 'scan', self.scan_callback,",
+          "language": "python",
+          "message_type": "LaserScan"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 45,
+          "snippet": "scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>( \"scan\", \\ rclcpp::SensorDataQoS(), \\ std::bind(",
+          "language": "cpp",
+          "message_type": "sensor_msgs::msg::LaserScan"
+        }
+      ]
+    },
+    "/odom": {
+      "publishers": [
+        {
+          "node": "odometry",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_node/src/odometry.cpp",
+          "line": 207,
+          "snippet": "odom_pub_->publish(std::move(odom_msg));",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        },
+        {
+          "node": "turtlebot3_fake_node",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "line": 166,
+          "snippet": "odom_pub_->publish(odom_);",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        }
+      ],
+      "subscribers": [
+        {
+          "node": "is_stuck_condition",
+          "file": "nav2_ws/src/navigation2/nav2_behavior_tree/plugins/condition/is_stuck_condition.cpp",
+          "line": 43,
+          "snippet": "odom_sub_ = node_->create_subscription<nav_msgs::msg::Odometry>( \"odom\", rclcpp::SystemDefaultsQoS(), std::bind(&IsStuckCondition::onOdomReceived, this, std::placeholders::_1),",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        },
+        {
+          "node": "tracero_agent",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 89,
+          "snippet": "self.create_subscription(Odometry, '/odom', self.odom_callback, 10)",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "spawn_tc01",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/spawn_tc01.py",
+          "line": 44,
+          "snippet": "self.create_subscription(Odometry, '/odom', self.odom_callback, 10)",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 65,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.get_odom,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_interactive_marker",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "line": 52,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 65,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback, qos )",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 95,
+          "snippet": "self.odom_sub = self.create_subscription( Odometry, 'odom', self.odom_callback,",
+          "language": "python",
+          "message_type": "Odometry"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 52,
+          "snippet": "odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>( \"odom\", qos, std::bind(&Turtlebot3Drive::odom_callback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "nav_msgs::msg::Odometry"
+        }
+      ]
+    },
+    "/cmd_vel": {
+      "publishers": [
+        {
+          "node": "timed_behavior",
+          "file": "nav2_ws/src/navigation2/nav2_behaviors/include/nav2_behaviors/timed_behavior.hpp",
+          "line": 269,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "controller_server",
+          "file": "nav2_ws/src/navigation2/nav2_controller/src/controller_server.cpp",
+          "line": 571,
+          "snippet": "vel_publisher_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "DummyController",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "line": 82,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "DummyController",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/dummy_controller/dummy_controller.cpp",
+          "line": 101,
+          "snippet": "vel_pub_->publish(std::move(cmd_vel));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 104,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 125,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_absolute_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_absolute_move/turtlebot3_absolute_move.py",
+          "line": 134,
+          "snippet": "self.cmd_vel_pub.publish(self.cmd_vel)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_interactive_marker",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_interactive_marker/turtlebot3_interactive_marker.py",
+          "line": 166,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_obstacle_detection",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_obstacle_detection/turtlebot3_obstacle_detection.py",
+          "line": 91,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 72,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 90,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_patrol_server",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_patrol/turtlebot3_patrol_server.py",
+          "line": 115,
+          "snippet": "self.cmd_vel_pub.publish(self.twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 164,
+          "snippet": "self.cmd_vel_pub.publish(twist)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 169,
+          "snippet": "self.cmd_vel_pub.publish(stamped)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "turtlebot3_relative_move",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_example/turtlebot3_example/turtlebot3_relative_move/turtlebot3_relative_move.py",
+          "line": 233,
+          "snippet": "node.cmd_vel_pub.publish(stop_twist)",
+          "language": "python",
+          "message_type": "CmdVelMsg"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 219,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 219,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 232,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 232,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 246,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 246,
+          "snippet": "pub.publish(twist)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 257,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "teleop_keyboard",
+          "file": "turtlebot3_ws/src/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/teleop_keyboard.py",
+          "line": 257,
+          "snippet": "pub.publish(twist_stamped)",
+          "language": "python",
+          "message_type": "TwistStamped"
+        },
+        {
+          "node": "turtlebot3_drive_node",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp",
+          "line": 104,
+          "snippet": "cmd_vel_pub_->publish(cmd_vel);",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        }
+      ],
+      "subscribers": [
+        {
+          "node": "assisted_teleop_behavior_tester",
+          "file": "nav2_ws/src/navigation2/nav2_system_tests/src/behaviors/assisted_teleop/assisted_teleop_behavior_tester.cpp",
+          "line": 63,
+          "snippet": "filtered_vel_sub_ = node_->create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", rclcpp::SystemDefaultsQoS(), std::bind(&AssistedTeleopBehaviorTester::filteredVelCallback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "velocity_smoother",
+          "file": "nav2_ws/src/navigation2/nav2_velocity_smoother/src/velocity_smoother.cpp",
+          "line": 124,
+          "snippet": "cmd_sub_ = create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", rclcpp::QoS(1), std::bind(&VelocitySmoother::inputCommandCallback, this, std::placeholders::_1));",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        },
+        {
+          "node": "tracero_agent",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 90,
+          "snippet": "self.create_subscription(Twist, '/cmd_vel', self.cmd_vel_callback, 10)",
+          "language": "python",
+          "message_type": "Twist"
+        },
+        {
+          "node": "turtlebot3_fake_node",
+          "file": "turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_fake_node/src/turtlebot3_fake_node.cpp",
+          "line": 48,
+          "snippet": "cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>( \"cmd_vel\", \\ qos, \\ std::bind(",
+          "language": "cpp",
+          "message_type": "geometry_msgs::msg::Twist"
+        }
+      ]
+    },
+    "/local_costmap/costmap": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "tracero_agent",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 91,
+          "snippet": "self.create_subscription( OccupancyGrid, '/local_costmap/costmap', self.costmap_callback,",
+          "language": "python",
+          "message_type": "OccupancyGrid"
+        }
+      ]
+    },
+    "/navigate_to_pose/_action/status": {
+      "publishers": [],
+      "subscribers": [
+        {
+          "node": "nav2_panel",
+          "file": "nav2_ws/src/navigation2/nav2_rviz_plugins/src/nav2_panel.cpp",
+          "line": 406,
+          "snippet": "navigation_goal_status_sub_ = node->create_subscription<action_msgs::msg::GoalStatusArray>( \"navigate_to_pose/_action/status\", rclcpp::SystemDefaultsQoS(), [this](const action_msgs::msg::GoalStatusArray::SharedPtr msg) {",
+          "language": "cpp",
+          "message_type": "action_msgs::msg::GoalStatusArray"
+        },
+        {
+          "node": "tracero_agent",
+          "file": "turtlebot3_ws/src/tracero_agent/tracero_agent/agent.py",
+          "line": 97,
+          "snippet": "self.create_subscription( GoalStatusArray, '/navigate_to_pose/_action/status', self.nav_status_callback,",
+          "language": "python",
+          "message_type": "GoalStatusArray"
+        }
+      ]
+    }
+  }
+}

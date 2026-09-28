@@ -1,0 +1,73 @@
+{
+  "benchmark": "A1",
+  "configuration": {
+    "runs": 5,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "start_yaw": 0.0,
+    "goal_x": 0.5,
+    "goal_y": -0.5,
+    "goal_yaw": 0.0,
+    "timeout_sec": 45.0,
+    "expected_tolerance": 0.25,
+    "expect_fault": false,
+    "report_dir": "/root/turtlebot3_ws/events",
+    "robot_id": "tc-01"
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-09-28T11:46:47.801374+00:00",
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "SUCCEEDED",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 2,
+      "started_at": "2026-09-28T11:46:58.571555+00:00",
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "FAILED",
+      "passed": false,
+      "errors": [
+        "baseline navigation did not succeed before timeout"
+      ]
+    },
+    {
+      "iteration": 3,
+      "started_at": "2026-09-28T11:47:24.333799+00:00",
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "SUCCEEDED",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 4,
+      "started_at": "2026-09-28T11:47:36.486940+00:00",
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "FAILED",
+      "passed": false,
+      "errors": [
+        "baseline navigation did not succeed before timeout"
+      ]
+    },
+    {
+      "iteration": 5,
+      "started_at": "2026-09-28T11:48:06.711324+00:00",
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "FAILED",
+      "passed": false,
+      "errors": [
+        "baseline navigation did not succeed before timeout"
+      ]
+    }
+  ],
+  "passed_runs": 2,
+  "total_runs": 5,
+  "pass_rate": 0.4
+}

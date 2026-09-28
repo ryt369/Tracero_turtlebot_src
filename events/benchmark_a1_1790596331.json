@@ -1,0 +1,52 @@
+{
+  "benchmark": "A1",
+  "configuration": {
+    "runs": 3,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "start_yaw": 0.0,
+    "goal_x": 0.5,
+    "goal_y": -0.5,
+    "goal_yaw": 0.0,
+    "timeout_sec": 45.0,
+    "expected_tolerance": 0.25,
+    "expect_fault": false,
+    "report_dir": "/root/turtlebot3_ws/events",
+    "robot_id": "tc-01"
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-09-28T11:51:35.218821+00:00",
+      "simulation_reset": true,
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "SUCCEEDED",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 2,
+      "started_at": "2026-09-28T11:51:47.938875+00:00",
+      "simulation_reset": true,
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "SUCCEEDED",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 3,
+      "started_at": "2026-09-28T11:51:59.854175+00:00",
+      "simulation_reset": true,
+      "runtime_xy_goal_tolerance": 0.25,
+      "expected_xy_goal_tolerance": 0.25,
+      "task_status": "SUCCEEDED",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "passed_runs": 3,
+  "total_runs": 3,
+  "pass_rate": 1.0
+}

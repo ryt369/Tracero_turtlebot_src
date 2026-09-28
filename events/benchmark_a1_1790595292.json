@@ -1,0 +1,31 @@
+{
+  "benchmark": "A1",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "start_yaw": 0.0,
+    "goal_x": 0.5,
+    "goal_y": -0.5,
+    "goal_yaw": 0.0,
+    "timeout_sec": 60.0,
+    "expected_tolerance": 0.001,
+    "expect_fault": true,
+    "report_dir": "/root/turtlebot3_ws/events",
+    "robot_id": "tc-01"
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-09-28T11:33:50.236999+00:00",
+      "runtime_xy_goal_tolerance": 0.001,
+      "expected_xy_goal_tolerance": 0.001,
+      "task_status": "TIMEOUT",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "passed_runs": 1,
+  "total_runs": 1,
+  "pass_rate": 1.0
+}
