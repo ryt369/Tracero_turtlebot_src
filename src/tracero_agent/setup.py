@@ -40,6 +40,7 @@ setup(
             'spawn_tc01 = tracero_agent.spawn_tc01:main',
             'benchmark_tc01 = tracero_agent.run_tc01_benchmark:main',
             'benchmark_a1 = tracero_agent.benchmark_a1:main',
+            'benchmark_a2 = tracero_agent.benchmark_a2:main',
             'build_static_index = tracero_agent.static_indexer:main',
             'safety_controller = tracero_agent.safety_controller:main',
         ],

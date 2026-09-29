@@ -1,0 +1,70 @@
+{
+  "benchmark": "A2",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "start_yaw": 0.0,
+    "goal_x": -1.0,
+    "goal_y": -0.5,
+    "goal_yaw": 0.0,
+    "obstacle_distance": 0.75,
+    "obstacle_size": 0.3,
+    "scan_detect_range": 1.1,
+    "min_costmap_cells": 1,
+    "timeout_sec": 45.0,
+    "expected_range": 0.3,
+    "expect_fault": true,
+    "report_dir": "/root/turtlebot3_ws/events",
+    "robot_id": "tc-01"
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-09-29T04:28:12.175227+00:00",
+      "obstacle_position": {
+        "x": -1.25,
+        "y": -0.5
+      },
+      "runtime_local_obstacle_max_range": 0.3,
+      "runtime_global_obstacle_max_range": 0.3,
+      "expected_obstacle_max_range": 0.3,
+      "scan_forward_range": 0.6119651198387146,
+      "scan_detected_obstacle": true,
+      "local_costmap_before": {
+        "frame_id": "odom",
+        "total_occupied_cells": 0,
+        "occupied_cells_near_obstacle": 0,
+        "max_cost_near_obstacle": 0
+      },
+      "local_costmap_after": {
+        "frame_id": "odom",
+        "total_occupied_cells": 0,
+        "occupied_cells_near_obstacle": 0,
+        "max_cost_near_obstacle": 0
+      },
+      "global_costmap_before": {
+        "frame_id": "map",
+        "total_occupied_cells": 4295,
+        "occupied_cells_near_obstacle": 42,
+        "max_cost_near_obstacle": 99
+      },
+      "global_costmap_after": {
+        "frame_id": "map",
+        "total_occupied_cells": 4295,
+        "occupied_cells_near_obstacle": 42,
+        "max_cost_near_obstacle": 99
+      },
+      "local_costmap_marked_obstacle": false,
+      "global_costmap_marked_obstacle": true,
+      "costmap_marked_obstacle": false,
+      "costmap_signature": "NOT_MARKED",
+      "task_status": "TIMEOUT",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "passed_runs": 1,
+  "total_runs": 1,
+  "pass_rate": 1.0
+}
