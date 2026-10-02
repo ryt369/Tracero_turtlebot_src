@@ -1,0 +1,101 @@
+{
+  "benchmark": "C1",
+  "configuration": {
+    "runs": 3,
+    "cmd_topic": "/cmd_vel",
+    "odom_topic": "/odom",
+    "truth_topic": "/c1_truth/ground_truth",
+    "angular_z": 0.35,
+    "duration_sec": 3.0,
+    "publish_rate": 20.0,
+    "settle_sec": 0.5,
+    "physical_separation": 0.16,
+    "expected_separation": 0.16,
+    "model_sdf": "/root/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_burger/model.sdf",
+    "max_normal_yaw_error": 0.2,
+    "min_fault_ratio": 1.4,
+    "expect_fault": false,
+    "report_dir": "/root/turtlebot3_ws/events"
+  },
+  "configured_wheel_separation": 0.16,
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-10-02T08:37:29.109819+00:00",
+      "configured_wheel_separation": 0.16,
+      "expected_wheel_separation": 0.16,
+      "physical_wheel_separation": 0.16,
+      "command_angular_z": 0.35,
+      "command_duration_sec": 3.0,
+      "odom_yaw_delta": 1.0349097629699795,
+      "gazebo_yaw_delta": 1.034887065114745,
+      "yaw_error": 2.2697855234454778e-05,
+      "measured_truth_to_odom_ratio": 0.9999780677929162,
+      "measured_command_to_truth_ratio": 0.9856067286807098,
+      "expected_command_to_truth_ratio": 1.0,
+      "odom_final_position": {
+        "x": -2.001507520082428,
+        "y": -0.5010283639603571
+      },
+      "gazebo_final_position": {
+        "x": -2.0015074749413717,
+        "y": -0.5010281489354766
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 2,
+      "started_at": "2026-10-02T08:37:33.126173+00:00",
+      "configured_wheel_separation": 0.16,
+      "expected_wheel_separation": 0.16,
+      "physical_wheel_separation": 0.16,
+      "command_angular_z": 0.35,
+      "command_duration_sec": 3.0,
+      "odom_yaw_delta": 1.0467558258247045,
+      "gazebo_yaw_delta": 1.0468774461936698,
+      "yaw_error": 0.00012162036896534723,
+      "measured_truth_to_odom_ratio": 1.0001161879074039,
+      "measured_command_to_truth_ratio": 0.9970261392320667,
+      "expected_command_to_truth_ratio": 1.0,
+      "odom_final_position": {
+        "x": -2.001518177108222,
+        "y": -0.5010487215511072
+      },
+      "gazebo_final_position": {
+        "x": -2.00151818396186,
+        "y": -0.5010493515924993
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "iteration": 3,
+      "started_at": "2026-10-02T08:37:37.166097+00:00",
+      "configured_wheel_separation": 0.16,
+      "expected_wheel_separation": 0.16,
+      "physical_wheel_separation": 0.16,
+      "command_angular_z": 0.35,
+      "command_duration_sec": 3.0,
+      "odom_yaw_delta": 1.0466759189245736,
+      "gazebo_yaw_delta": 1.0466701141188879,
+      "yaw_error": 5.804805685682979e-06,
+      "measured_truth_to_odom_ratio": 0.9999944540563314,
+      "measured_command_to_truth_ratio": 0.9968286801132267,
+      "expected_command_to_truth_ratio": 1.0,
+      "odom_final_position": {
+        "x": -2.001517103937919,
+        "y": -0.5010469627914182
+      },
+      "gazebo_final_position": {
+        "x": -2.001517104956192,
+        "y": -0.5010476134516133
+      },
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "passed_runs": 3,
+  "total_runs": 3,
+  "pass_rate": 1.0
+}

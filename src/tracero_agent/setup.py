@@ -14,6 +14,10 @@ setup(
             'requirements-static-index.txt',
             'STATIC_INDEX.md',
         ]),
+        ('share/' + package_name + '/config/c1', [
+            'config/c1/model.sdf',
+            'config/c1/model_C1.sdf',
+        ]),
         ('share/' + package_name + '/launch', [
             'launch/tc01_brake_nav2.launch.py',
         ]),
@@ -41,6 +45,8 @@ setup(
             'benchmark_tc01 = tracero_agent.run_tc01_benchmark:main',
             'benchmark_a1 = tracero_agent.benchmark_a1:main',
             'benchmark_a2 = tracero_agent.benchmark_a2:main',
+            'benchmark_c1 = tracero_agent.benchmark_c1:main',
+            'apply_c1_model = tracero_agent.apply_c1_model:main',
             'build_static_index = tracero_agent.static_indexer:main',
             'safety_controller = tracero_agent.safety_controller:main',
         ],
