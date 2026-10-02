@@ -1,0 +1,72 @@
+{
+  "benchmark": "D2",
+  "configuration": {
+    "runs": 1,
+    "start_x": -2.0,
+    "start_y": -0.5,
+    "start_yaw": 0.0,
+    "obstacle_distance": 0.75,
+    "obstacle_size": 0.3,
+    "scan_detect_range": 1.1,
+    "min_costmap_cells": 1,
+    "expected_sensor_yaw": 0.0,
+    "timeout_sec": 45.0,
+    "model_urdf": "/root/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/urdf/turtlebot3_burger.urdf",
+    "expect_fault": false,
+    "report_dir": "/root/turtlebot3_ws/events"
+  },
+  "runs": [
+    {
+      "iteration": 1,
+      "started_at": "2026-10-02T09:17:36.991758+00:00",
+      "obstacle_position_world": {
+        "x": -1.25,
+        "y": -0.5
+      },
+      "sensor_tf": {
+        "parent_frame": "base_link",
+        "child_frame": "base_scan",
+        "yaw": 0.0,
+        "translation": {
+          "x": -0.032,
+          "y": 0.0,
+          "z": 0.172
+        }
+      },
+      "expected_sensor_yaw": 0.0,
+      "sensor_yaw_error": 0.0,
+      "scan_frame": "base_scan",
+      "scan_forward_range": 0.6239858865737915,
+      "scan_detected_front_obstacle": true,
+      "front_costmap": {
+        "frame_id": "odom",
+        "occupied_cells_near_point": 64,
+        "max_cost_near_point": 100
+      },
+      "rear_costmap": {
+        "frame_id": "odom",
+        "occupied_cells_near_point": 73,
+        "max_cost_near_point": 100
+      },
+      "baseline_front_costmap": {
+        "frame_id": "odom",
+        "occupied_cells_near_point": 17,
+        "max_cost_near_point": 95
+      },
+      "baseline_rear_costmap": {
+        "frame_id": "odom",
+        "occupied_cells_near_point": 73,
+        "max_cost_near_point": 100
+      },
+      "front_costmap_delta_cells": 47,
+      "rear_costmap_delta_cells": 0,
+      "front_costmap_marked": true,
+      "rear_costmap_marked": false,
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "passed_runs": 1,
+  "total_runs": 1,
+  "pass_rate": 1.0
+}

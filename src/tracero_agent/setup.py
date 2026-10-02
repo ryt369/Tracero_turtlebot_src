@@ -18,6 +18,10 @@ setup(
             'config/c1/model.sdf',
             'config/c1/model_C1.sdf',
         ]),
+        ('share/' + package_name + '/config/d2', [
+            'config/d2/turtlebot3_burger.urdf',
+            'config/d2/turtlebot3_burger_D2.urdf',
+        ]),
         ('share/' + package_name + '/launch', [
             'launch/tc01_brake_nav2.launch.py',
         ]),
@@ -47,6 +51,8 @@ setup(
             'benchmark_a2 = tracero_agent.benchmark_a2:main',
             'benchmark_c1 = tracero_agent.benchmark_c1:main',
             'apply_c1_model = tracero_agent.apply_c1_model:main',
+            'benchmark_d2 = tracero_agent.benchmark_d2:main',
+            'apply_d2_urdf = tracero_agent.apply_d2_urdf:main',
             'build_static_index = tracero_agent.static_indexer:main',
             'safety_controller = tracero_agent.safety_controller:main',
         ],
