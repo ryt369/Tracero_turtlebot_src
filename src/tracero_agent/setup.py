@@ -14,6 +14,15 @@ setup(
             'requirements-static-index.txt',
             'STATIC_INDEX.md',
         ]),
+        ('share/' + package_name + '/config/common', [
+            'config/common/burger.yaml',
+        ]),
+        ('share/' + package_name + '/config/a1', [
+            'config/a1/burger_A1.yaml',
+        ]),
+        ('share/' + package_name + '/config/a2', [
+            'config/a2/burger_A2.yaml',
+        ]),
         ('share/' + package_name + '/config/c1', [
             'config/c1/model.sdf',
             'config/c1/model_C1.sdf',

@@ -24,8 +24,8 @@ xy_goal_tolerance: 0.25
 当前参数文件：
 
 ```text
-/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger.yaml
-/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger_A1.yaml
+/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
+/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/a1/burger_A1.yaml
 ```
 
 `burger_A1.yaml` 从正常 `burger.yaml` 复制，只把 `controller_server.goal_checker.xy_goal_tolerance` 从 `0.25` 改成 `0.001`。`FollowPath` 下原有的 `xy_goal_tolerance: 0.05` 没有改动；该字段属于 DWB critic 配置，不是本题用于读取的 goal checker 参数。
@@ -298,7 +298,7 @@ ros2 launch nav2_bringup bringup_launch.py \
   use_composition:=False \
   autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
 ```
 
 启动后发布初始位姿，然后检查：
@@ -334,7 +334,7 @@ ros2 launch nav2_bringup bringup_launch.py \
   use_composition:=False \
   autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger_A1.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/a1/burger_A1.yaml
 ```
 
 确认注入成功：
@@ -461,7 +461,7 @@ ros2 launch nav2_bringup bringup_launch.py \
   use_composition:=False \
   autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
 ```
 
 确认恢复：

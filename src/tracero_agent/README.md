@@ -15,6 +15,16 @@ Dockerfile           Reproducible Humble/Gazebo/Nav2 runtime
 docker/              Container entrypoint
 ```
 
+Fault-injection resources are kept inside the `tracero_agent` package:
+
+```text
+src/tracero_agent/config/common/burger.yaml  normal Nav2 parameters
+src/tracero_agent/config/a1/burger_A1.yaml  A1 goal-tolerance fault
+src/tracero_agent/config/a2/burger_A2.yaml  A2 costmap-range fault
+src/tracero_agent/config/c1/                  C1 Gazebo model variants
+src/tracero_agent/config/d2/                  D2 URDF variants
+```
+
 Generated `build`, `install` and `log` directories are intentionally excluded.
 Nav2 and TurtleBot3 runtime packages are installed from Humble binaries. Their
 source trees are fetched at pinned commits inside the image for tree-sitter
@@ -149,3 +159,22 @@ publishes a `diagnostic_msgs/msg/DiagnosticArray` event on
 `/tracero/safety_event`. Its trigger distance includes stopping distance,
 sensor latency, and a safety margin. The static index includes this diagnostic
 topic so the backend can associate the safety decision with its source.
+
+## A1/A2 parameter files
+
+Build and source `tracero_agent` before launching Nav2 so the package resources
+are available under `install/tracero_agent/share/tracero_agent/config`:
+
+```bash
+cd /root/turtlebot3_ws
+colcon build --packages-select tracero_agent --symlink-install
+source /root/turtlebot3_ws/install/setup.bash
+```
+
+Use these paths with Nav2's `params_file` argument:
+
+```text
+normal: /root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
+A1:     /root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/a1/burger_A1.yaml
+A2:     /root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/a2/burger_A2.yaml
+```

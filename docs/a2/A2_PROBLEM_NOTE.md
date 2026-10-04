@@ -44,7 +44,7 @@ nav2_simple_commander`。
 ros2 launch nav2_bringup bringup_launch.py \
   use_sim_time:=true use_composition:=False autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
 ```
 
 ```bash
@@ -69,7 +69,7 @@ sleep 5
 ros2 launch nav2_bringup bringup_launch.py \
   use_sim_time:=true use_composition:=False autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger_A2.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/a2/burger_A2.yaml
 ```
 
 确认参数：

@@ -79,7 +79,7 @@ export TURTLEBOT3_MODEL=burger ROS_DOMAIN_ID=30
 ros2 launch nav2_bringup bringup_launch.py \
   use_sim_time:=true use_composition:=False autostart:=true \
   map:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/map/map.yaml \
-  params_file:=/root/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/param/burger.yaml
+  params_file:=/root/turtlebot3_ws/install/tracero_agent/share/tracero_agent/config/common/burger.yaml
 ```
 
 `benchmark_d2` 会自动设置初始位姿并等待 Nav2 active。测试过程中停止其它会发布 `/cmd_vel` 的控制器即可；D2 benchmark 本身不发送导航速度。
