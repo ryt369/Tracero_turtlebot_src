@@ -160,6 +160,41 @@ publishes a `diagnostic_msgs/msg/DiagnosticArray` event on
 sensor latency, and a safety margin. The static index includes this diagnostic
 topic so the backend can associate the safety decision with its source.
 
+## Live dashboard bridge
+
+The optional rosbridge endpoint exposes only the live dashboard topics used by
+the frontend: `/odom`, `/plan`, and
+`/navigate_to_pose/_action/status`. It is not an event store and should not be
+used as a browser control channel. The launch file disables action goals and
+does not expose ROS services or parameters.
+
+Install the Humble package once in the runtime image. For image builds, add
+this package to the image's apt install list:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y ros-humble-rosbridge-server
+```
+
+Start it after sourcing the ROS and workspace setup files:
+
+```bash
+ros2 launch tracero_agent rosbridge.launch.py \
+  address:=0.0.0.0 port:=9090
+```
+
+The frontend connects to `ws://<machine-a>:9090` with `roslibjs`. Verify the
+endpoint before handing it to the frontend:
+
+```bash
+ros2 topic list | grep -E '^/(odom|plan|navigate_to_pose/_action/status)$'
+ss -ltn | grep ':9090'
+```
+
+Keep port 9090 on a trusted network. If the bridge must be exposed beyond the
+local machine, put it behind an authenticated reverse proxy and keep command
+topics outside the allowed topic scope.
+
 ## A1/A2 parameter files
 
 Build and source `tracero_agent` before launching Nav2 so the package resources

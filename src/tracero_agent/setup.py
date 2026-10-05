@@ -33,6 +33,7 @@ setup(
         ]),
         ('share/' + package_name + '/launch', [
             'launch/tc01_brake_nav2.launch.py',
+            'launch/rosbridge.launch.py',
         ]),
     ],
     install_requires=[
