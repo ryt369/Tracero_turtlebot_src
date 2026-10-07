@@ -286,6 +286,42 @@ The D2 variants are stored in `config/d2/turtlebot3_burger.urdf` and
 ros2 run tracero_agent apply_d2_urdf --variant normal
 ```
 
+## Runtime Nav2 parameter evidence
+
+When `agent` starts, it queries the running Nav2 parameter services for the
+parameters most relevant to A1/A2 and navigation diagnosis. The snapshot is
+stored in each event under `params_snapshot` and is also sent to
+`/api/ingest/params` when `backend_base_url` is configured. It records the
+capture source, timestamp, per-node status, critical values, and warnings; it
+does not substitute Agent defaults when a Nav2 service is unavailable.
+
+The first version reads:
+
+```text
+/controller_server: controller_frequency,
+  goal_checker.xy_goal_tolerance, FollowPath.xy_goal_tolerance
+/local_costmap/local_costmap: update_frequency, publish_frequency,
+  inflation_layer.inflation_radius, obstacle_layer.scan.obstacle_max_range,
+  voxel_layer.scan.obstacle_max_range
+/global_costmap/global_costmap: update_frequency, publish_frequency,
+  obstacle_layer.scan.obstacle_max_range, voxel_layer.scan.obstacle_max_range
+/planner_server: expected_planner_frequency
+/amcl: update_min_d, update_min_a, transform_tolerance
+```
+
+If Agent starts before Nav2, unavailable nodes are marked as `unavailable` or
+`partial` with warnings. Adjust the bounded retry policy when needed:
+
+```bash
+ros2 run tracero_agent agent --ros-args \
+  -p runtime_param_timeout_sec:=2.0 \
+  -p runtime_param_retries:=3
+```
+
+Set `runtime_param_capture:=false` only for isolated Agent tests. The
+`schema_version` and `critical_params` fields leave room for a later full
+Nav2 snapshot without changing the event trigger logic.
+
 ## 中文说明
 
 ### A1：Nav2 目标位置容差故障

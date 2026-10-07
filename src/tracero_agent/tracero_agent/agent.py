@@ -16,10 +16,12 @@ from diagnostic_msgs.msg import DiagnosticArray
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import OccupancyGrid, Odometry
 from rclpy.node import Node
+from rclpy.executors import ExternalShutdownException
 from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import LaserScan
 
 from tracero_agent.index_version import read_index_version
+from tracero_agent.runtime_parameters import RuntimeParameterCollector
 
 
 class TraceroAgent(Node):
@@ -37,6 +39,9 @@ class TraceroAgent(Node):
         self.declare_parameter('controller_frequency', 20.0)
         self.declare_parameter('update_frequency', 5.0)
         self.declare_parameter('inflation_radius', 0.55)
+        self.declare_parameter('runtime_param_capture', True)
+        self.declare_parameter('runtime_param_timeout_sec', 1.0)
+        self.declare_parameter('runtime_param_retries', 2)
 
         self.scan_threshold = float(self.get_parameter('scan_threshold').value)
         self.output_dir = str(self.get_parameter('output_dir').value)
@@ -62,7 +67,7 @@ class TraceroAgent(Node):
         self.http_timeout_sec = float(
             self.get_parameter('http_timeout_sec').value
         )
-        self.params_snapshot = {
+        self.agent_parameters = {
             'controller_frequency': float(
                 self.get_parameter('controller_frequency').value
             ),
@@ -74,6 +79,29 @@ class TraceroAgent(Node):
             ),
             'scan_threshold': self.scan_threshold,
         }
+        capture_runtime_params = bool(
+            self.get_parameter('runtime_param_capture').value
+        )
+        if capture_runtime_params:
+            collector = RuntimeParameterCollector(
+                self,
+                timeout_sec=float(
+                    self.get_parameter('runtime_param_timeout_sec').value
+                ),
+                retries=int(self.get_parameter('runtime_param_retries').value),
+            )
+            self.params_snapshot = collector.collect()
+        else:
+            self.params_snapshot = {
+                'schema_version': 'runtime-params-v1',
+                'captured_at_unix': round(time.time(), 6),
+                'source': 'capture_disabled',
+                'status': 'disabled',
+                'nodes': {},
+                'critical_params': {},
+                'warnings': ['runtime parameter capture is disabled'],
+            }
+        self.params_snapshot['agent_parameters'] = self.agent_parameters
 
         os.makedirs(self.output_dir, exist_ok=True)
         self.fov_rad = math.radians(25.0)
@@ -123,7 +151,8 @@ class TraceroAgent(Node):
 
         self.get_logger().info(
             f'Tracero Agent initialized. Threshold: {self.scan_threshold}m; '
-            f'run_id: {self.run_id}'
+            f'run_id: {self.run_id}; '
+            f'runtime_params: {self.params_snapshot["status"]}'
         )
         if self.backend_base_url:
             self.post_json(
@@ -382,7 +411,7 @@ def main(args=None):
     node = TraceroAgent()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, ExternalShutdownException):
         pass
     finally:
         node.destroy_node()
