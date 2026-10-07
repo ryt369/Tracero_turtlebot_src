@@ -82,15 +82,16 @@ class TraceroAgent(Node):
         capture_runtime_params = bool(
             self.get_parameter('runtime_param_capture').value
         )
+        self.runtime_param_collector = None
         if capture_runtime_params:
-            collector = RuntimeParameterCollector(
+            self.runtime_param_collector = RuntimeParameterCollector(
                 self,
                 timeout_sec=float(
                     self.get_parameter('runtime_param_timeout_sec').value
                 ),
                 retries=int(self.get_parameter('runtime_param_retries').value),
             )
-            self.params_snapshot = collector.collect()
+            self.params_snapshot = self.runtime_param_collector.collect()
         else:
             self.params_snapshot = {
                 'schema_version': 'runtime-params-v1',
@@ -335,6 +336,18 @@ class TraceroAgent(Node):
         ]
 
     def save_event_json(self, pre_5s: List[Dict], post_2s: List[Dict]):
+        # ROS 2 service discovery can lag behind node startup.  If the
+        # initial capture was partial, retry once immediately before writing
+        # the event so the snapshot reflects the services available at the
+        # actual trigger time without blocking the 20 Hz control loop.
+        if (
+            self.runtime_param_collector is not None
+            and self.params_snapshot.get('status') != 'available'
+        ):
+            refreshed_snapshot = self.runtime_param_collector.collect()
+            refreshed_snapshot['agent_parameters'] = self.agent_parameters
+            self.params_snapshot = refreshed_snapshot
+
         safe_run_id = re.sub(r'[^A-Za-z0-9_.-]', '_', self.run_id)
         filename = (
             f'event_tc01_{safe_run_id}_'
